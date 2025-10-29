@@ -42,6 +42,32 @@
             android:layout_height="wrap_content" />
     </LinearLayout>
 
+    <!-- Opción de Yape -->
+    <LinearLayout
+        android:id="@+id/opcionYape"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:background="@drawable/bg_tarjeta_opcion"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_yape"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:text="Yape"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
     <!-- Línea inferior con total -->
     <TextView
         android:id="@+id/txtTotalCheckout"

@@ -121,6 +121,10 @@
             android:name=".dialogos.ActividadPagoTarjeta"
             android:exported="false"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".dialogos.ActividadPagoYape"
+            android:exported="false"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
 
         <activity
             android:name=".dialogos.ActividadConfirmacionPago"

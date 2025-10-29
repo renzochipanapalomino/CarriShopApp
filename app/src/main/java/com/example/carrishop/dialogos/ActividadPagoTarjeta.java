@@ -102,6 +102,7 @@ public class ActividadPagoTarjeta extends AppCompatActivity {
         Intent intent = new Intent(this, ActividadConfirmacionPago.class);
         intent.putExtra("total", total);
         intent.putExtra("correo_usuario", correoIngresado); // 🔸 NUEVO
+        intent.putExtra("metodo_pago", "Tarjeta");
         startActivity(intent);
         finish();
     }
