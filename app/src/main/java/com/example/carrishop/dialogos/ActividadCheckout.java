@@ -14,6 +14,7 @@ import com.example.carrishop.datos.prefs.SesionPrefs;
 public class ActividadCheckout extends AppCompatActivity {
 
     private LinearLayout opcionTarjeta;
+    private LinearLayout opcionYape;
     private TextView txtTotal;
     private double total = 0;
     private SesionPrefs prefs;
@@ -24,6 +25,7 @@ public class ActividadCheckout extends AppCompatActivity {
         setContentView(R.layout.activity_checkout);
 
         opcionTarjeta = findViewById(R.id.opcionTarjeta);
+        opcionYape = findViewById(R.id.opcionYape);
         txtTotal = findViewById(R.id.txtTotalCheckout);
         prefs = new SesionPrefs(this);
 
@@ -46,6 +48,12 @@ public class ActividadCheckout extends AppCompatActivity {
         // 🔹 Clic en tarjeta → ir a pago
         opcionTarjeta.setOnClickListener(v -> {
             Intent intent = new Intent(this, ActividadPagoTarjeta.class);
+            intent.putExtra("total", total);
+            startActivity(intent);
+        });
+
+        opcionYape.setOnClickListener(v -> {
+            Intent intent = new Intent(this, ActividadPagoYape.class);
             intent.putExtra("total", total);
             startActivity(intent);
         });

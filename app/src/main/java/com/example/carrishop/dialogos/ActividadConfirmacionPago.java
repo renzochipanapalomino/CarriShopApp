@@ -30,7 +30,12 @@ public class ActividadConfirmacionPago extends AppCompatActivity {
         txtMensaje = findViewById(R.id.txtMensajePago);
         btnContinuar = findViewById(R.id.btnContinuarPago);
 
-        txtMensaje.setText("Procesando pago... 💳");
+        String metodo = getIntent().getStringExtra("metodo_pago");
+        if (metodo == null || metodo.isEmpty()) {
+            txtMensaje.setText("Procesando pago... 💳");
+        } else {
+            txtMensaje.setText("Procesando pago con " + metodo + "... 💳");
+        }
         animarCheck();
 
         // 🔹 Actualizar estado Premium en BD y sesión
