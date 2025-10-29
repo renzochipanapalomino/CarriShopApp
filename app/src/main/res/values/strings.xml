@@ -1,0 +1,124 @@
+<resources>
+    <string name="app_name">carrishop</string>
+
+    <string name="t_mi_perfil">Mi Perfil</string>
+    <string name="t_nombre_apellido">Nombre Apellido</string>
+    <string name="t_usuario_correo_demo">usuario@correo.com</string>
+    <string name="t_general">General</string>
+    <string name="t_alertas_productos">Alertas de Productos</string>
+    <string name="t_modo_ninos">Modo Niños</string>
+    <string name="desc_avatar">Avatar del usuario</string>
+    <string name="voz_presionar">PRESIONAR</string>
+    <string name="voz_menciona">Menciona el nombre del producto</string>
+    <string name="voz_toca_hablar">Toca para hablar</string>
+    <string name="voz_lista_productos">Lista de Productos</string>
+    <string name="voz_agregar_carrito">Agregar al carrito</string>
+    <string name="accion_eliminar">Eliminar</string>
+
+    <!-- Resumen de compra -->
+    <string name="res_nombre_apellido">Nombre Apellido</string>
+    <string name="res_correo_demo">usuario@correo.com</string>
+    <string name="res_comprando_en_generico">Comprando en …</string>
+
+    <string name="res_titulo_resumen">RESUMEN DE LA COMPRA</string>
+    <string name="res_lista_productos">Lista de Productos</string>
+    <string name="res_total">Total:</string>
+
+    <string name="res_finalizar">FINALIZAR</string>
+    <string name="res_volver_escanear">Volver a Escanear</string>
+
+    <!-- Placeholders / demo -->
+    <string name="res_monto_cero"> S/ 0.00</string>
+
+    <string name="t_telefono">Teléfono</string>
+    <string name="accion_editar">Editar</string>
+    <string name="accion_guardar">Guardar</string>
+    <string name="accion_salir">SALIR</string>
+
+
+    <string name="variante_nombre">Nombre del producto</string>
+    <string name="variante_marca">Marca: Ejemplo</string>
+    <string name="variante_precio">S/ 0.00</string>
+    <string name="titulo_dialogo_variantes">Selecciona una variante</string>
+    <string name="btn_confirmar_agregar">Agregar al carrito</string>
+
+
+
+    <string name="titulo_tarjeta">Tarjeta de crédito o débito</string>
+    <string name="numero_tarjeta">Número de tarjeta</string>
+    <string name="fecha_cad">Fecha cad. (MM/AA)</string>
+    <string name="codigo_seguridad">Código de seguridad</string>
+    <string name="nombre_titular">Nombre del titular de la tarjeta</string>
+    <string name="correo_electronico">Correo electrónico</string>
+    <string name="confirmar_pago">Confirmar pago</string>
+
+
+    <string name="pago_completo">Pago completo</string>
+    <string name="continuar">Continuar</string>
+
+    <!-- 🟣 Checkout / Pago -->
+    <string name="t_seleccion_pago">Selecciona un método de pago</string>
+    <string name="t_tarjeta_credito_debito">Tarjeta de crédito o débito</string>
+    <string name="t_total_pagar">Total a pagar</string>
+    <string name="t_continuar_pago">Continuar al pago 💳</string>
+
+    <!-- === Tarjeta de crédito/débito === -->
+    <string name="t_tarjeta_titulo">Tarjeta de crédito/débito</string>
+    <string name="t_numero_tarjeta">Número de tarjeta</string>
+    <string name="t_logo_visa">Logo Visa</string>
+    <string name="t_logo_mastercard">Logo Mastercard</string>
+    <string name="t_logo_amex">Logo American Express</string>
+
+    <!-- === Campos === -->
+    <string name="t_hint_numero_tarjeta">1234 3213 2313 3213</string>
+    <string name="t_hint_fecha">MM/YY</string>
+    <string name="t_hint_cvv">CVV/CVC</string>
+    <string name="t_hint_titular">Nombre del titular de la tarjeta</string>
+    <string name="t_hint_correo">Introduce tu dirección de correo electrónico</string>
+
+    <!-- === Otros textos === -->
+    <string name="t_guardar_tarjeta">Guardar esta tarjeta la próxima vez</string>
+    <string name="t_politica_seguridad">🔒 Seguimos el estándar de seguridad PCI DSS y utilizamos cifrado para proteger la privacidad de tus datos personales.</string>
+    <string name="t_total">Total:</string>
+    <string name="t_confirmar">Confirmar</string>
+    <string name="t_monto">PEN 9.90</string>
+
+
+    <string name="titulo_como_funciona">Cómo funciona Carrishop Premium</string>
+    <string name="subtitulo_como_funciona">Descubre cómo acumular puntos y canjear tus beneficios exclusivos.</string>
+
+    <string name="paso1_titulo">Gana Estrellas</string>
+    <string name="paso1_desc">Cada vez que realices una compra mayor a S/150, recibirás 25 estrellas acumulables en tu cuenta Premium.</string>
+
+    <string name="paso2_titulo">Canjea tus premios</string>
+    <string name="paso2_desc">Cada 25 estrellas puedes canjear una bebida o producto especial. ¡A medida que acumules más, desbloquearás recompensas mayores!</string>
+
+    <string name="paso3_titulo">Mantén tu progreso</string>
+    <string name="paso3_desc">Tus puntos se guardan automáticamente en tu cuenta Premium. ¡No los perderás aunque cierres sesión!</string>
+
+
+    <string name="titulo_acumula">Acumula Estrellas</string>
+    <string name="desc_acumula">Gana estrellas por cada compra mayor a S/300 o al usar tu Carrishop Card.</string>
+    <string name="titulo_canjea">Canjea tus Estrellas</string>
+    <string name="desc_canjea">Usa tus puntos para canjear productos, bebidas o descuentos exclusivos en Carrishop.</string>
+    <string name="titulo_bonus">Aprovecha los Star Bonus</string>
+    <string name="desc_bonus">Participa en días especiales y gana el doble de estrellas con promociones Carrishop Premium.</string>
+    <string name="ver_beneficios">Ver todos los beneficios</string>
+
+    <string name="txt_total_cero">S/ 0.00</string>
+    <string name="btn_guardar_imagen">Guardar como Imagen 🧾</string>
+    <string name="btn_control_compras">Ver Control de Compras 📊</string>
+
+
+    <string-array name="modos_grafico">
+        <item>Semanal</item>
+        <item>Mensual</item>
+    </string-array>
+
+
+
+
+
+
+
+</resources>

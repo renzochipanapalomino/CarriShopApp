@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- ========================================================= -->
+    <!-- 📱 PERMISOS PRINCIPALES -->
+    <!-- ========================================================= -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Permisos para respaldo e imágenes -->
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="29" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!-- Micrófono no obligatorio -->
+    <uses-feature
+        android:name="android.hardware.microphone"
+        android:required="false" />
+
+    <!-- Reconocimiento de voz (Android 11+) -->
+    <queries>
+        <intent>
+            <action android:name="android.speech.RecognitionService" />
+        </intent>
+    </queries>
+
+    <!-- ========================================================= -->
+    <!-- ⚙️ APLICACIÓN PRINCIPAL -->
+    <!-- ========================================================= -->
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_logo_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Carrishop">
+
+        <!-- ========================================================= -->
+        <!-- 🏠 ACTIVIDADES PRINCIPALES -->
+        <!-- ========================================================= -->
+
+        <!-- Lanzador principal (Login) -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Pantalla de voz -->
+        <activity
+            android:name=".ActividadEscanearVoz"
+            android:exported="false" />
+
+        <!-- Resumen de compra -->
+        <activity
+            android:name=".ActividadResumenCompra"
+            android:exported="false" />
+
+        <!-- Bienvenida (Usuarios básicos) -->
+        <activity
+            android:name=".ActividadBienvenida"
+            android:exported="true"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <!-- Perfil -->
+        <activity
+            android:name=".ActividadPerfil"
+            android:exported="false"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <!-- Sugerencias -->
+        <activity
+            android:name=".ActividadSugerencias"
+            android:exported="false" />
+
+        <!-- Detalle de producto -->
+        <activity
+            android:name=".ActividadDetalleProducto"
+            android:exported="false" />
+
+        <!-- Supermercados -->
+        <activity
+            android:name=".ActividadSupermercados"
+            android:exported="false" />
+
+        <!-- Recuperar contraseña -->
+        <activity
+            android:name=".ActividadOlvideContrasena"
+            android:exported="false"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <!-- Registro -->
+        <activity
+            android:name=".ActividadRegistro"
+            android:exported="false"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <!-- ========================================================= -->
+        <!-- 💎 MÓDULO PREMIUM -->
+        <!-- ========================================================= -->
+
+        <activity
+            android:name=".dialogos.ActividadPremium"
+            android:exported="false"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <activity
+            android:name=".dialogos.ActividadCheckout"
+            android:exported="false"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <activity
+            android:name=".dialogos.ActividadPagoTarjeta"
+            android:exported="false"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <activity
+            android:name=".dialogos.ActividadConfirmacionPago"
+            android:exported="false"
+            android:theme="@style/Theme.Carrishop"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <!-- ========================================================= -->
+        <!-- 🌟 MÓDULO DE RECOMPENSAS -->
+        <!-- ========================================================= -->
+        <activity
+            android:name=".dialogos.ActividadRewards"
+            android:exported="true"
+            android:theme="@style/Theme.Carrishop"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <activity
+            android:name=".ActividadMisEstrellas"
+            android:exported="false"
+            android:theme="@style/Theme.Carrishop"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <!-- ========================================================= -->
+        <!-- 📊 CONTROL DE COMPRAS (Premium) -->
+        <!-- ========================================================= -->
+        <activity
+            android:name=".ActividadControlCompras"
+            android:exported="false"
+            android:theme="@style/Theme.Carrishop"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <!-- ========================================================= -->
+        <!-- 👶 MODO NIÑOS -->
+        <!-- ========================================================= -->
+        <activity
+            android:name=".ActividadModoNinos"
+            android:exported="false"
+            android:theme="@style/Theme.Material3.DayNight.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+    </application>
+</manifest>

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_soft_blue"
+    tools:context=".ActividadResumenCompra">
+
+    <!-- ========================================================= -->
+    <!-- 📜 SCROLL DEL RESUMEN (todo el contenido guardable) -->
+    <!-- ========================================================= -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottomBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- ========================================================= -->
+            <!-- 👤 TARJETA DE USUARIO -->
+            <!-- ========================================================= -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="@color/superficie"
+                app:strokeColor="@color/borde"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="14dp"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_user"
+                        android:contentDescription="@null"
+                        android:background="@drawable/bg_img_round"
+                        android:padding="10dp"
+                        app:tint="@color/primario" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="12dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txtNombreUser"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/res_nombre_apellido"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:textColor="@color/texto"
+                            tools:text="José Manuel López" />
+
+                        <TextView
+                            android:id="@+id/txtEmailUser"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/res_correo_demo"
+                            android:textColor="@color/texto"
+                            tools:text="chipanar245@gmail.com" />
+
+                        <TextView
+                            android:id="@+id/txtRolUser"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp"
+                            android:background="@drawable/chip_store_bg"
+                            android:text="@string/res_comprando_en_generico"
+                            android:textColor="@color/primario"
+                            tools:text="Comprando en Tottus" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ========================================================= -->
+            <!-- 🧾 RESUMEN DE COMPRA -->
+            <!-- ========================================================= -->
+            <TextView
+                android:id="@+id/txtResumen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="@string/res_titulo_resumen"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/texto"
+                tools:text="RESUMEN DE LA COMPRA" />
+
+            <!-- ========================================================= -->
+            <!-- 🛍️ LISTA DE PRODUCTOS -->
+            <!-- ========================================================= -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardListaResumen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:cardCornerRadius="18dp"
+                app:cardBackgroundColor="@color/superficie"
+                app:strokeColor="@color/borde"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/res_lista_productos"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:textColor="@color/texto"
+                        tools:text="Lista de Productos" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="6dp"
+                        android:background="@drawable/divider_dashed" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerResumen"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="6dp"
+                        tools:listitem="@layout/item_producto_resumen" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/divider_dashed" />
+
+                    <!-- TOTAL -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="end"
+                        android:paddingTop="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/res_total"
+                            android:textStyle="bold"
+                            android:textColor="@color/texto"
+                            tools:text="Total:" />
+
+                        <TextView
+                            android:id="@+id/txtTotal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" S/ 0.00"
+                            android:textStyle="bold"
+                            android:textColor="@color/texto"
+                            tools:text="S/ 68.80" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- ========================================================= -->
+    <!-- ⚙️ BOTONERA INFERIOR -->
+    <!-- ========================================================= -->
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- FINALIZAR -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnFinalizar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="@string/res_finalizar"
+            android:textAllCaps="false"
+            android:textColor="@color/on_primario"
+            android:textSize="15sp"
+            app:backgroundTint="@color/primario"
+            app:rippleColor="@color/primario_oscuro"
+            app:cornerRadius="24dp" />
+
+        <!-- VOLVER A ESCANEAR -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnVolverScan"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/res_volver_escanear"
+            android:textAllCaps="false"
+            android:textSize="15sp"
+            android:textColor="@color/primario"
+            app:strokeColor="@color/primario"
+            app:strokeWidth="1dp"
+            app:backgroundTint="@android:color/transparent"
+            app:cornerRadius="24dp" />
+
+        <!-- GUARDAR COMO IMAGEN -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGuardarImagen"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:text="Guardar como Imagen"
+            android:textAllCaps="false"
+            android:textSize="15sp"
+            android:textColor="@color/primario"
+            app:strokeColor="@color/primario"
+            app:strokeWidth="1dp"
+            app:backgroundTint="@android:color/transparent"
+            app:cornerRadius="24dp" />
+
+        <!-- CONTROL DE COMPRAS (solo Premium) -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnControlCompras"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:text="Ver Control de Compras"
+            android:textAllCaps="false"
+            android:textSize="15sp"
+            android:textColor="@color/primario"
+            app:strokeColor="@color/primario"
+            app:strokeWidth="1dp"
+            app:backgroundTint="@android:color/transparent"
+            app:cornerRadius="24dp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

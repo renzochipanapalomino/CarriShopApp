@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradiente_suave">
+
+    <!-- 🔹 Encabezado superior con color diferenciado -->
+    <LinearLayout
+        android:id="@+id/headerSugerencias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@drawable/bg_header_sugerencias"
+        android:elevation="4dp">
+
+        <!-- 🔸 Título -->
+        <TextView
+            android:id="@+id/txtTituloSug"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🛒 Sugerencias de Productos"
+            android:textColor="@color/on_primario"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:gravity="center"/>
+
+        <!-- 🔸 Barra de búsqueda -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_search_bar"
+            android:layout_marginTop="12dp"
+            android:padding="10dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_search"
+                android:contentDescription="Buscar"
+                app:tint="@color/texto" />
+
+            <EditText
+                android:id="@+id/txtBuscar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Buscar promociones o productos..."
+                android:textColor="@color/texto"
+                android:paddingStart="10dp"
+                android:background="@null"
+                android:inputType="text"/>
+        </LinearLayout>
+
+        <!-- 🔸 Logos de supermercados -->
+        <HorizontalScrollView
+            android:id="@+id/scrollLogos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:dividerPadding="8dp"
+                android:showDividers="middle">
+
+                <ImageView android:id="@+id/logoTottus" android:layout_width="72dp" android:layout_height="72dp" android:src="@drawable/logo_totus" android:contentDescription="Tottus" />
+                <ImageView android:id="@+id/logoPlazaVea" android:layout_width="72dp" android:layout_height="72dp" android:src="@drawable/logo_plaza_vea" android:contentDescription="Plaza Vea" />
+                <ImageView android:id="@+id/logoMetro" android:layout_width="72dp" android:layout_height="72dp" android:src="@drawable/logo_ripley" android:contentDescription="Ripley" />
+                <ImageView android:id="@+id/logoMass" android:layout_width="72dp" android:layout_height="72dp" android:src="@drawable/logo_mass" android:contentDescription="Mass" />
+                <ImageView android:id="@+id/logoTambo" android:layout_width="72dp" android:layout_height="72dp" android:src="@drawable/logo_saga_falabella" android:contentDescription="Saga Falabella" />
+            </LinearLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
+
+    <!-- 🔹 Lista de productos (ajustada sin espacio en blanco) -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerSugerencias"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="210dp"
+        android:clipToPadding="false"
+        android:padding="10dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <!-- 🔹 Botón salir -->
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/btnSalirSug"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Salir"
+        android:textColor="@color/on_primario"
+        app:backgroundTint="@color/primario"
+        app:icon="@drawable/ic_logout"
+        app:iconTint="@color/on_primario"
+        app:cornerRadius="20dp"
+        app:elevation="6dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="16dp"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_item_row_color"
+    android:padding="10dp"
+    android:layout_marginBottom="6dp">
+
+    <!-- Índice circular -->
+    <TextView
+        android:id="@+id/txtIndice"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:gravity="center"
+        android:text="1"
+        android:textStyle="bold"
+        android:textColor="@color/texto"
+        android:background="@drawable/bg_index"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Nombre del producto -->
+    <TextView
+        android:id="@+id/txtNombre"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Fideos Spaghetti"
+        android:textStyle="bold"
+        android:textColor="@color/texto"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/txtIndice"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnEliminar" />
+
+    <!-- Cantidad -->
+    <TextView
+        android:id="@+id/txtCantidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cantidad: 1"
+        android:textColor="@color/texto_secundario"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/txtNombre"
+        app:layout_constraintTop_toBottomOf="@id/txtNombre"
+        android:layout_marginTop="2dp" />
+
+    <!-- Precio unitario -->
+    <TextView
+        android:id="@+id/txtPrecioUnitario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Unitario: S/ 4.90"
+        android:textColor="@color/texto"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/txtNombre"
+        app:layout_constraintTop_toBottomOf="@id/txtCantidad"
+        android:layout_marginTop="2dp" />
+
+    <!-- Subtotal -->
+    <TextView
+        android:id="@+id/txtSubtotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Subtotal: S/ 9.80"
+        android:textColor="@color/primario"
+        android:textStyle="bold"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/txtPrecioUnitario"
+        app:layout_constraintTop_toBottomOf="@id/txtPrecioUnitario"
+        android:layout_marginTop="2dp" />
+
+    <!-- Botón eliminar -->
+    <ImageButton
+        android:id="@+id/btnEliminar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_delete_24"
+        android:background="@drawable/ripple_icon_gray"
+        app:tint="@android:color/darker_gray"
+        android:contentDescription="@string/accion_eliminar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

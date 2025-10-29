@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradiente_suave">
+
+    <!-- 🔹 Contenedor principal -->
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:padding="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <!-- 🔸 Tarjeta central -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="80dp"
+                android:padding="28dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="26dp"
+                app:cardElevation="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <!-- 🖼 Imagen del producto -->
+                    <ImageView
+                        android:id="@+id/imgDetalle"
+                        android:layout_width="230dp"
+                        android:layout_height="230dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="22dp"
+                        android:background="@drawable/bg_img_round"
+                        android:contentDescription="@null"
+                        android:elevation="4dp"
+                        android:scaleType="centerCrop" />
+
+                    <!-- 🏷 Nombre del producto -->
+                    <TextView
+                        android:id="@+id/txtNombreDetalle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:text="Nombre del producto"
+                        android:textAlignment="center"
+                        android:textColor="@color/texto"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <!-- 💲 Precio -->
+                    <TextView
+                        android:id="@+id/txtPrecioDetalle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="16dp"
+                        android:text="S/ 0.00"
+                        android:textAlignment="center"
+                        android:textColor="@color/primario"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <!-- 📝 Descripción -->
+                    <TextView
+                        android:id="@+id/txtDescripcionDetalle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:text="Este producto cuenta con una excelente calidad y se encuentra disponible en tu supermercado favorito."
+                        android:textAlignment="center"
+                        android:textColor="@color/texto_secundario"
+                        android:textSize="15sp" />
+
+                    <!-- 🛒 Botón Agregar -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnAgregarCarritoDetalle"
+                        android:layout_width="240dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="18dp"
+                        android:text="🛍 Agregar al carrito"
+                        android:textAllCaps="false"
+                        android:textColor="@color/on_exito"
+                        android:textStyle="bold"
+                        app:backgroundTint="@color/exito"
+                        app:cornerRadius="20dp"
+                        app:elevation="6dp" />
+
+                    <!-- 🔙 Botón Volver -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnVolverDetalle"
+                        style="?attr/materialButtonOutlinedStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="↩ Volver a Supermercados"
+                        android:textAllCaps="false"
+                        android:textStyle="bold"
+                        app:backgroundTint="@android:color/transparent"
+                        app:cornerRadius="20dp"
+                        app:strokeColor="@color/primario"
+                        app:strokeWidth="1dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

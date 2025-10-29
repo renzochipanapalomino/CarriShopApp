@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+
+    <!-- 💠 Fotograma 1: Azul intenso -->
+    <item android:duration="2500">
+        <shape xmlns:android="http://schemas.android.com/apk/res/android"
+            android:shape="rectangle">
+            <gradient
+                android:startColor="#2196F3"
+                android:endColor="#64B5F6"
+                android:angle="270"/>
+        </shape>
+    </item>
+
+    <!-- 💠 Fotograma 2: Celeste degradado -->
+    <item android:duration="2500">
+        <shape xmlns:android="http://schemas.android.com/apk/res/android"
+            android:shape="rectangle">
+            <gradient
+                android:startColor="#42A5F5"
+                android:endColor="#BBDEFB"
+                android:angle="270"/>
+        </shape>
+    </item>
+
+    <!-- 💠 Fotograma 3: Azul con toque violeta -->
+    <item android:duration="2500">
+        <shape xmlns:android="http://schemas.android.com/apk/res/android"
+            android:shape="rectangle">
+            <gradient
+                android:startColor="#3F51B5"
+                android:endColor="#5C6BC0"
+                android:angle="270"/>
+        </shape>
+    </item>
+</animation-list>

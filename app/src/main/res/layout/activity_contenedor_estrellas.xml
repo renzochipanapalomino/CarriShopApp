@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!-- 🔹 Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarEstrellas"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        android:elevation="2dp"
+        app:title="Carrishop Rewards"
+        app:titleTextColor="@color/black"
+        app:navigationIcon="@drawable/ic_back_arrow" />
+
+    <!-- 🔹 Tabs y contenido -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayoutEstrellas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:tabIndicatorColor="@color/verde_claro"
+        app:tabIndicatorHeight="3dp"
+        app:tabSelectedTextColor="@color/black"
+        app:tabTextColor="@color/texto_secundario"
+        app:tabMode="fixed"
+        app:tabGravity="fill" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPagerEstrellas"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

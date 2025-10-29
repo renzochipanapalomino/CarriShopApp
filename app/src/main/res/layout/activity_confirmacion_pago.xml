@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="32dp">
+
+    <!-- Círculo verde con check -->
+    <ImageView
+        android:id="@+id/imgCheck"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/ic_check_circle"
+        android:contentDescription="@string/pago_completo"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Texto “Pago completo” -->
+    <TextView
+        android:id="@+id/txtMensajePago"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pago_completo"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/purple_500"
+        android:layout_marginBottom="32dp" />
+
+    <!-- Botón volver -->
+    <Button
+        android:id="@+id/btnContinuarPago"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/continuar"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/purple_500"
+        android:padding="12dp" />
+
+</LinearLayout>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_item_resumen"
+    android:padding="12dp"
+    android:layout_marginTop="6dp"
+    android:foreground="?attr/selectableItemBackground">
+
+    <!-- Círculo de índice -->
+    <TextView
+        android:id="@+id/txtIndiceR"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:gravity="center"
+        android:text="1"
+        android:textStyle="bold"
+        android:textColor="@color/texto"
+        android:background="@drawable/bg_index"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <!-- Contenedor del contenido del producto -->
+    <LinearLayout
+        android:id="@+id/layoutContenido"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@id/txtIndiceR"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Nombre del producto -->
+        <TextView
+            android:id="@+id/txtNombreR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombre del producto"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:textColor="@color/texto"
+            android:layout_marginBottom="4dp"/>
+
+        <!-- Texto detalle multilínea -->
+        <TextView
+            android:id="@+id/txtPrecioR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cantidad: 1\nUnitario: S/ 0.00\nSubtotal: S/ 0.00"
+            android:textSize="13sp"
+            android:textColor="@color/texto"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

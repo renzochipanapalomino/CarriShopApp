@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="18dp"
+    android:overScrollMode="never">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- 🟢 Título principal -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cómo funciona Carrishop Premium"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:layout_marginBottom="20dp" />
+
+        <!-- 💳 Bloque 1: Acumula Estrellas -->
+        <LinearLayout
+            android:id="@+id/bloqueAcumula"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:background="@drawable/bg_bloque_acumula"
+            android:elevation="5dp"
+            android:layout_marginBottom="14dp"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_estrella_llena"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="@null" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Acumula Estrellas 💫"
+                    android:textStyle="bold"
+                    android:textSize="17sp"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Gana estrellas por cada compra mayor a S/300 o al usar tu Carrishop Card."
+                    android:textSize="14sp"
+                    android:textColor="@color/texto" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ☕ Bloque 2: Canjea tus Estrellas -->
+        <LinearLayout
+            android:id="@+id/bloqueCanjea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:background="@drawable/bg_bloque_canjea"
+            android:elevation="5dp"
+            android:layout_marginBottom="14dp"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_crown"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="@null" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Canjea tus Estrellas 🎁"
+                    android:textStyle="bold"
+                    android:textSize="17sp"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Usa tus puntos para canjear productos o descuentos exclusivos en Carrishop."
+                    android:textSize="14sp"
+                    android:textColor="@color/texto" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 🎁 Bloque 3: Beneficios Extra Carrishop -->
+        <LinearLayout
+            android:id="@+id/bloqueBonus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:background="@drawable/bg_bloque_bonus"
+            android:elevation="5dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_credit_card"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="@null" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Beneficios Extra Carrishop 💎"
+                    android:textStyle="bold"
+                    android:textSize="17sp"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Participa en promociones especiales y gana el doble de estrellas en eventos Premium."
+                    android:textSize="14sp"
+                    android:textColor="@color/texto" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 🔹 Botón inferior -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnVerBeneficios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ver todos los beneficios"
+            android:textAllCaps="false"
+            android:textColor="@color/primario"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="40dp"
+            app:strokeColor="@color/primario"
+            app:strokeWidth="1dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp" />
+
+    </LinearLayout>
+</ScrollView>

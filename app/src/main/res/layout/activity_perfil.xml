@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo">
+
+    <!-- Cabecera: óvalo celeste suave -->
+    <ImageView
+        android:id="@+id/bgOval"
+        android:layout_width="700dp"
+        android:layout_height="700dp"
+        android:layout_gravity="top|center_horizontal"
+        android:translationY="-430dp"
+        android:background="@drawable/bg_oval_header"
+        android:contentDescription="@null" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:clipToPadding="false"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:cardCornerRadius="18dp"
+                app:cardUseCompatPadding="true"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@color/superficie"
+                app:strokeColor="@color/borde"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Título principal -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/t_mi_perfil"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:textColor="@color/texto" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="@color/borde" />
+
+                    <!-- Imagen usuario -->
+                    <ImageView
+                        android:layout_width="84dp"
+                        android:layout_height="84dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/bg_img_round"
+                        android:padding="20dp"
+                        android:src="@drawable/ic_user"
+                        app:tint="@color/primario"
+                        android:contentDescription="@string/desc_avatar" />
+
+                    <TextView
+                        android:id="@+id/txtNombreTitulo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:text="@string/t_nombre_apellido"
+                        android:textColor="@color/texto"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <!-- EMAIL -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/cajaEmailPerfil"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:hint="@string/t_usuario_correo_demo"
+                        app:boxBackgroundMode="outline"
+                        app:boxCornerRadiusTopStart="12dp"
+                        app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp"
+                        app:boxCornerRadiusBottomEnd="12dp"
+                        app:boxStrokeColor="@color/borde"
+                        app:boxStrokeWidth="1dp"
+                        app:boxStrokeWidthFocused="2dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtEmailPerfil"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress"
+                            android:textColor="@color/texto"
+                            android:textColorHint="@color/texto" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- NOMBRE -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/cajaNombrePerfil"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:hint="@string/t_nombre_apellido"
+                        app:boxBackgroundMode="outline"
+                        app:boxCornerRadiusTopStart="12dp"
+                        app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp"
+                        app:boxCornerRadiusBottomEnd="12dp"
+                        app:boxStrokeColor="@color/borde"
+                        app:boxStrokeWidth="1dp"
+                        app:boxStrokeWidthFocused="2dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtNombrePerfil"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPersonName"
+                            android:textColor="@color/texto"
+                            android:textColorHint="@color/texto" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- TELÉFONO -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/cajaTelefonoPerfil"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:hint="@string/t_telefono"
+                        app:boxBackgroundMode="outline"
+                        app:boxCornerRadiusTopStart="12dp"
+                        app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp"
+                        app:boxCornerRadiusBottomEnd="12dp"
+                        app:boxStrokeColor="@color/borde"
+                        app:boxStrokeWidth="1dp"
+                        app:boxStrokeWidthFocused="2dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtTelefonoPerfil"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="phone"
+                            android:textColor="@color/texto"
+                            android:textColorHint="@color/texto" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- BOTONES -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnEditarPerfil"
+                        style="?attr/materialButtonOutlinedStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="18dp"
+                        android:text="@string/accion_editar"
+                        android:textAllCaps="false"
+                        android:textColor="@color/primario"
+                        app:cornerRadius="24dp"
+                        app:strokeColor="@color/primario"
+                        app:strokeWidth="2dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnGuardarPerfil"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/accion_guardar"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:backgroundTint="#E53935"
+                        android:visibility="gone"
+                        app:cornerRadius="24dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSalirPerfil"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="14dp"
+                        android:text="@string/accion_salir"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:backgroundTint="@color/primario"
+                        app:cornerRadius="24dp" />
+
+                    <!-- 🆕 NUEVO BOTÓN PREMIUM -->
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</FrameLayout>

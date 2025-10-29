@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+
+    <aapt:attr name="android:drawable">
+        <vector
+            android:width="24dp"
+            android:height="24dp"
+            android:viewportWidth="24"
+            android:viewportHeight="24">
+            <path
+                android:name="arrow"
+                android:fillColor="#1565C0"
+                android:pathData="M19,11H7.83l5.59-5.59L12,4l-8,8 8,8 1.41-1.41L7.83,13H19v-2z"/>
+        </vector>
+    </aapt:attr>
+
+    <target android:name="arrow">
+        <aapt:attr name="android:animation">
+            <set>
+                <rotate
+                    android:fromDegrees="0"
+                    android:toDegrees="-15"
+                    android:pivotX="50%"
+                    android:pivotY="50%"
+                    android:duration="150"
+                    android:repeatMode="reverse"
+                    android:repeatCount="1" />
+            </set>
+        </aapt:attr>
+    </target>
+</animated-vector>

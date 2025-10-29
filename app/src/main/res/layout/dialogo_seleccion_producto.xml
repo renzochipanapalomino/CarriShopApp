@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="18dp"
+    android:background="@drawable/bg_dialog_fondo"
+    android:gravity="center_horizontal">
+
+    <!-- 🔹 Título del diálogo -->
+    <TextView
+        android:id="@+id/txtTituloDialogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selecciona un producto"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="@color/primario"
+        android:layout_marginBottom="12dp" />
+
+    <!-- 🔹 Lista de variantes -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerVariantes"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_marginBottom="16dp"
+        android:scrollbars="vertical"
+        android:clipToPadding="false"
+        android:paddingBottom="4dp" />
+
+    <!-- 🔹 Controles de cantidad -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="12dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMenos"
+            style="?attr/materialIconButtonFilledStyle"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:icon="@drawable/ic_remove_24"
+            app:iconTint="@color/on_primario"
+            android:backgroundTint="@color/primario"
+            app:cornerRadius="20dp" />
+
+        <TextView
+            android:id="@+id/txtCantidad"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/texto"
+            android:layout_marginHorizontal="10dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMas"
+            style="?attr/materialIconButtonFilledStyle"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:icon="@drawable/ic_add_24"
+            app:iconTint="@color/on_primario"
+            android:backgroundTint="@color/primario"
+            app:cornerRadius="20dp" />
+    </LinearLayout>
+
+    <!-- 🔹 Botón de confirmación -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnConfirmarSeleccion"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="Agregar al carrito"
+        android:textAllCaps="false"
+        android:textColor="@color/on_primario"
+        android:textSize="15sp"
+        android:backgroundTint="@color/primario"
+        app:cornerRadius="24dp"
+        android:layout_marginTop="6dp" />
+
+</LinearLayout>
