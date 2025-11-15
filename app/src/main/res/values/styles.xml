@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Widget.Carrishop.NivelEstrella">
+    <!-- AGREGA ESTE ESTILO PADRE -->
+    <style name="Widget.Carrishop" parent="">
+        <!-- Puedes dejarlo vacío o añadir atributos comunes -->
+    </style>
+
+    <!-- Tu estilo existente ahora tiene un padre válido -->
+    <style name="Widget.Carrishop.NivelEstrella" parent="Widget.Carrishop">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginStart">6dp</item>
@@ -15,4 +21,12 @@
         <item name="android:background">@drawable/bg_nivel_inactivo</item>
         <item name="android:gravity">center</item>
     </style>
+      <!-- Tema base para tu aplicación (modo claro) -->
+        <style name="Base.Theme.Carrishop" parent="Theme.Material3.DayNight.NoActionBar">
+            <!-- Aquí puedes personalizar colores y otros atributos para el modo claro -->
+            <!-- Por ejemplo: -->
+            <!-- <item name="colorPrimary">@color/mi_color_primario_claro</item> -->
+        </style>
+
+        <style name="Theme.Carrishop" parent="Base.Theme.Carrishop" />
 </resources>

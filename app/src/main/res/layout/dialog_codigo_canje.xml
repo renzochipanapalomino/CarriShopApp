@@ -1,123 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="@drawable/bg_dialog_codigo_root">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_marginBottom="12dp">
-
-        <ImageButton
-            android:id="@+id/btnCerrarCodigo"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:background="@android:color/transparent"
-            android:padding="4dp"
-            android:contentDescription="@string/cerrar"
-            android:src="@drawable/ic_close" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/titulo_codigo_canje"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:gravity="center" />
-
-        <View
-            android:layout_width="36dp"
-            android:layout_height="36dp" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/txtInstruccionCodigo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/instruccion_codigo"
-        android:textColor="@color/white"
-        android:textSize="14sp"
-        android:layout_marginBottom="20dp" />
+    android:padding="24dp">   <!-- 🔥 SEPARA DE LOS BORDES DE LA PANTALLA -->
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/bg_dialog_codigo_card"
-        android:layout_marginBottom="20dp">
+        android:background="@drawable/bg_btn_primary"
+        android:padding="20dp"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:clipToPadding="false"
+        android:clipChildren="false">
 
-        <FrameLayout
+        <!-- CABECERA -->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginBottom="8dp">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
+
+            <ImageButton
+                android:id="@+id/btnCerrarCodigo"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@android:color/transparent"
+                android:padding="4dp"
+                android:contentDescription="@string/cerrar"
+                android:src="@drawable/ic_close" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/titulo_codigo_canje"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:gravity="center" />
 
             <View
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/bg_lock_circle" />
+                android:layout_width="36dp"
+                android:layout_height="36dp" />
+        </LinearLayout>
 
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_lock_secure"
-                android:contentDescription="@null" />
-        </FrameLayout>
-
+        <!-- TEXTO -->
         <TextView
-            android:id="@+id/txtCodigoGenerado"
+            android:id="@+id/txtInstruccionCodigo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="123 456"
-            android:textColor="@color/texto"
-            android:textSize="32sp"
-            android:textStyle="bold"
-            android:letterSpacing="0.08"
-            android:gravity="center"
-            android:layout_marginBottom="8dp" />
-
-        <ProgressBar
-            android:id="@+id/progressCodigo"
-            style="@android:style/Widget.ProgressBar.Horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="8dp"
-            android:progress="100"
-            android:progressTint="@color/primario"
-            android:indeterminate="false"
-            android:layout_marginBottom="8dp" />
-
-        <TextView
-            android:id="@+id/txtTiempoCodigo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/codigo_restante_placeholder"
-            android:textColor="@color/texto"
+            android:text="@string/instruccion_codigo"
+            android:textColor="@color/white"
             android:textSize="14sp"
-            android:gravity="center" />
+            android:layout_marginBottom="20dp" />
+
+        <!-- TARJETA CENTRAL -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_dialog_codigo_card"
+            android:padding="16dp"
+            android:layout_marginBottom="20dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginBottom="8dp">
+
+                <View
+                    android:layout_width="114dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg_nivel_activo" />
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_lock_secure"
+                    android:contentDescription="@null" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/txtCodigoGenerado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="123 456"
+                android:textColor="@color/texto"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"
+                android:gravity="center"
+                android:layout_marginBottom="8dp" />
+
+            <ProgressBar
+                android:id="@+id/progressCodigo"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:progress="100"
+                android:progressTint="@color/primario"
+                android:indeterminate="false"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/txtTiempoCodigo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/codigo_restante_placeholder"
+                android:textColor="@color/texto"
+                android:textSize="14sp"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <!-- BOTÓN COPIAR -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCopiarCodigo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/copiar_codigo"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:backgroundTint="@color/secundario"
+            android:textColor="@color/white"
+            app:cornerRadius="16dp"
+            app:icon="@drawable/ic_copy"
+            app:iconGravity="textStart"
+            app:iconPadding="12dp"
+            app:iconTint="@color/white" />
+
     </LinearLayout>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnCopiarCodigo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/copiar_codigo"
-        android:textAllCaps="false"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:backgroundTint="@color/secundario"
-        android:textColor="@color/white"
-        app:cornerRadius="16dp"
-        app:icon="@drawable/ic_copy"
-        app:iconGravity="textStart"
-        app:iconPadding="12dp"
-        app:iconTint="@color/white" />
-
-</LinearLayout>
+</FrameLayout>
