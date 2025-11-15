@@ -134,6 +134,16 @@
                 android:inputType="textPassword"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <TextView
+            android:id="@+id/lblIndicadorContrasena"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/registro_contrasena_instrucciones"
+            android:textColor="@color/texto_secundario"
+            android:textSize="12sp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"/>
+
         <!-- Términos -->
         <TextView
             android:layout_width="match_parent"

@@ -91,7 +91,7 @@ public class ActividadSupermercados extends AppCompatActivity {
 
             btnPremium.setOnClickListener(v -> {
                 // ➡️ Redirige al proceso de pago
-                Intent intent = new Intent(this, com.example.carrishop.dialogos.ActividadPagoTarjeta.class);
+                Intent intent = new Intent(this, com.example.carrishop.dialogos.ActividadCheckout.class);
                 intent.putExtra("total", 9.90); // 💰 Monto del plan Premium
                 startActivity(intent);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
