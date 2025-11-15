@@ -4,6 +4,8 @@
     <string name="t_mi_perfil">Mi Perfil</string>
     <string name="t_nombre_apellido">Nombre Apellido</string>
     <string name="t_usuario_correo_demo">usuario@correo.com</string>
+    <string name="registro_contrasena_instrucciones">Debe incluir un carácter especial, una letra mayúscula, una letra minúscula y un número.</string>
+    <string name="registro_contrasena_segura">¡Contraseña segura! Cumple con todos los requisitos.</string>
     <string name="t_general">General</string>
     <string name="t_alertas_productos">Alertas de Productos</string>
     <string name="t_modo_ninos">Modo Niños</string>

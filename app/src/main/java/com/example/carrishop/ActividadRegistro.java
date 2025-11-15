@@ -1,10 +1,14 @@
 package com.example.carrishop;
 
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.example.carrishop.datos.bd.BaseDeDatosApp;
 import com.example.carrishop.datos.entidades.UsuarioEntidad;
@@ -17,6 +21,7 @@ import java.util.regex.Pattern;
 public class ActividadRegistro extends AppCompatActivity {
 
     private TextInputEditText txtNombre, txtEmail, txtContrasena, txtTelefono, txtDni;
+    private TextView lblIndicadorContrasena;
     private MaterialCheckBox chkTerminos, chkDatos, chkPrivacidad;
 
     @Override
@@ -32,6 +37,26 @@ public class ActividadRegistro extends AppCompatActivity {
         chkTerminos = findViewById(R.id.chkTerminos);
         chkDatos = findViewById(R.id.chkDatos);
         chkPrivacidad = findViewById(R.id.chkPrivacidad);
+        lblIndicadorContrasena = findViewById(R.id.lblIndicadorContrasena);
+
+        if (txtContrasena != null) {
+            txtContrasena.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    actualizarIndicadorContrasena(s);
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+                }
+            });
+        }
+
+        actualizarIndicadorContrasena("");
 
         findViewById(R.id.btnGuardar).setOnClickListener(v -> guardarUsuario());
     }
@@ -93,6 +118,24 @@ public class ActividadRegistro extends AppCompatActivity {
     private boolean esContrasenaSegura(String contrasena) {
         Pattern patron = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!._-]).{8,25}$");
         return patron.matcher(contrasena).matches();
+    }
+
+    private void actualizarIndicadorContrasena(CharSequence contrasena) {
+        if (lblIndicadorContrasena == null) return;
+
+        if (TextUtils.isEmpty(contrasena)) {
+            lblIndicadorContrasena.setText(R.string.registro_contrasena_instrucciones);
+            lblIndicadorContrasena.setTextColor(ContextCompat.getColor(this, R.color.texto_secundario));
+            return;
+        }
+
+        if (esContrasenaSegura(contrasena.toString())) {
+            lblIndicadorContrasena.setText(R.string.registro_contrasena_segura);
+            lblIndicadorContrasena.setTextColor(ContextCompat.getColor(this, R.color.exito));
+        } else {
+            lblIndicadorContrasena.setText(R.string.registro_contrasena_instrucciones);
+            lblIndicadorContrasena.setTextColor(ContextCompat.getColor(this, R.color.error));
+        }
     }
 
     private String get(TextInputEditText t) {
