@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_dialog_beneficios"
+        android:elevation="8dp">
+
+        <ImageButton
+            android:id="@+id/btnCerrarBeneficios"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="end"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/cerrar"
+            android:padding="4dp"
+            android:src="@drawable/ic_close"
+            android:tint="@color/primario" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/titulo_beneficios"
+            android:textColor="@color/texto"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/subtitulo_beneficios"
+            android:textColor="@color/texto_secundario"
+            android:textSize="15sp"
+            android:layout_marginBottom="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:divider="@drawable/divider_beneficios"
+            android:dividerPadding="16dp"
+            android:showDividers="middle">
+
+            <include layout="@layout/item_beneficio_premium"
+                android:id="@+id/beneficioUno" />
+
+            <include layout="@layout/item_beneficio_premium"
+                android:id="@+id/beneficioDos" />
+
+            <include layout="@layout/item_beneficio_premium"
+                android:id="@+id/beneficioTres" />
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEntendidoBeneficios"
+            style="@style/Widget.Carrishop.Cta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_entendido"
+            android:layout_marginTop="20dp" />
+
+    </LinearLayout>
+</LinearLayout>

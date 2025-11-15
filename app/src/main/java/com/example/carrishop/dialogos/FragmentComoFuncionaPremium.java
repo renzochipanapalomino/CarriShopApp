@@ -1,11 +1,18 @@
 package com.example.carrishop.dialogos;
 
+import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,6 +20,7 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.carrishop.R;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 /**
@@ -81,22 +89,13 @@ public class FragmentComoFuncionaPremium extends Fragment {
         // 🔹 Botón inferior “Ver todos los beneficios”
         View btnVerBeneficios = vista.findViewById(R.id.btnVerBeneficios);
         if (btnVerBeneficios != null) {
-            btnVerBeneficios.setOnClickListener(v ->
-                    mostrarDialogo(
-                            R.drawable.ic_crown,
-                            "Todos los Beneficios 👑",
-                            "Con Carrishop Premium puedes acceder a recompensas exclusivas:\n\n" +
-                                    "⭐ Descuentos especiales en supermercados afiliados.\n" +
-                                    "🎁 Canje de productos Premium.\n" +
-                                    "🏆 Acceso anticipado a promociones y eventos especiales.\n\n" +
-                                    "¡Sigue acumulando estrellas y disfruta tu membresía Premium!"
-                    ));
+            btnVerBeneficios.setOnClickListener(v -> mostrarDialogoBeneficios());
         }
 
         return vista;
     }
 
-    // 🟩 Diálogo moderno
+    // 🟩 Diálogo moderno para bloques
     private void mostrarDialogo(int icono, String titulo, String mensaje) {
         if (getContext() == null) return;
 
@@ -109,5 +108,48 @@ public class FragmentComoFuncionaPremium extends Fragment {
                 .setBackground(ResourcesCompat.getDrawable(
                         getResources(), R.drawable.bg_dialog_fondo, null))
                 .show();
+    }
+
+    private void mostrarDialogoBeneficios() {
+        if (getContext() == null) return;
+
+        Dialog dialog = new Dialog(requireContext());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.dialog_beneficios_premium);
+
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
+
+        View beneficioUno = dialog.findViewById(R.id.beneficioUno);
+        View beneficioDos = dialog.findViewById(R.id.beneficioDos);
+        View beneficioTres = dialog.findViewById(R.id.beneficioTres);
+
+        configurarBeneficio(beneficioUno, R.drawable.ic_estrella_llena,
+                "Estrellas dobles", "Acumula el doble los fines de semana Premium.");
+        configurarBeneficio(beneficioDos, R.drawable.ic_credit_card,
+                "Checkout prioritario", "Recibe atención exclusiva en cajas Carrishop.");
+        configurarBeneficio(beneficioTres, R.drawable.ic_crown,
+                "Experiencias Rewards", "Accede a catas, workshops y lanzamientos privados.");
+
+        ImageButton cerrar = dialog.findViewById(R.id.btnCerrarBeneficios);
+        MaterialButton listo = dialog.findViewById(R.id.btnEntendidoBeneficios);
+
+        if (cerrar != null) cerrar.setOnClickListener(v -> dialog.dismiss());
+        if (listo != null) listo.setOnClickListener(v -> dialog.dismiss());
+
+        dialog.show();
+    }
+
+    private void configurarBeneficio(View contenedor, int icono, String titulo, String descripcion) {
+        if (contenedor == null) return;
+        ImageView iconView = contenedor.findViewById(R.id.imgIconoBeneficio);
+        TextView tituloView = contenedor.findViewById(R.id.txtTituloBeneficio);
+        TextView descripcionView = contenedor.findViewById(R.id.txtDescripcionBeneficio);
+
+        if (iconView != null) iconView.setImageResource(icono);
+        if (tituloView != null) tituloView.setText(titulo);
+        if (descripcionView != null) descripcionView.setText(descripcion);
     }
 }

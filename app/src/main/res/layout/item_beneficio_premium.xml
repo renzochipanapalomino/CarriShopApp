@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingVertical="12dp">
+
+    <ImageView
+        android:id="@+id/imgIconoBeneficio"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_estrella_llena"
+        android:contentDescription="@null" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtTituloBeneficio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Beneficio"
+            android:textColor="@color/texto"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txtDescripcionBeneficio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Detalle del beneficio"
+            android:textColor="@color/texto_secundario"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp" />
+    </LinearLayout>
+</LinearLayout>
