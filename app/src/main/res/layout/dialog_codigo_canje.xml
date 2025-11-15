@@ -106,10 +106,15 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnCopiarCodigo"
-        style="@style/Widget.Carrishop.Cta.Secondary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/copiar_codigo"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:backgroundTint="@color/secundario"
+        android:textColor="@color/white"
+        app:cornerRadius="16dp"
         app:icon="@drawable/ic_copy"
         app:iconGravity="textStart"
         app:iconPadding="12dp"
