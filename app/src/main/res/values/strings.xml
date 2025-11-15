@@ -4,6 +4,8 @@
     <string name="t_mi_perfil">Mi Perfil</string>
     <string name="t_nombre_apellido">Nombre Apellido</string>
     <string name="t_usuario_correo_demo">usuario@correo.com</string>
+    <string name="registro_contrasena_instrucciones">Debe incluir un carácter especial, una letra mayúscula, una letra minúscula y un número.</string>
+    <string name="registro_contrasena_segura">¡Contraseña segura! Cumple con todos los requisitos.</string>
     <string name="t_general">General</string>
     <string name="t_alertas_productos">Alertas de Productos</string>
     <string name="t_modo_ninos">Modo Niños</string>
@@ -120,5 +122,25 @@
 
 
 
+
+
+
+    
+    <string name="mis_estrellas_saludo">%1$s, conoce qué puedes canjear con tus Estrellas</string>
+    <string name="mis_estrellas_total">Tienes %1$d Estrellas</string>
+    <string name="mis_estrellas_recompensa">Canjea esta propuesta con %1$d Estrellas</string>
+
+<!-- 🔐 Canje de estrellas -->
+    <string name="cerrar">Cerrar</string>
+    <string name="titulo_codigo_canje">Código de canje</string>
+    <string name="instruccion_codigo">Enséñale o dicta este código al cajero que te atenderá.</string>
+    <string name="codigo_restante_placeholder">Tu código se renueva en %1$d segundos.</string>
+    <string name="copiar_codigo">Copiar código</string>
+    <string name="codigo_copiado">Código copiado</string>
+
+    <!-- 💎 Beneficios -->
+    <string name="titulo_beneficios">Beneficios destacados</string>
+    <string name="subtitulo_beneficios">Todo lo que desbloqueas al pertenecer a Carrishop Premium.</string>
+    <string name="btn_entendido">¡Listo, a seguir acumulando!</string>
 
 </resources>

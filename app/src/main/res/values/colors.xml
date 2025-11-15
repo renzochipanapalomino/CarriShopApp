@@ -21,6 +21,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="black">#FF000000</color>
     <color name="acento">#FF6F61</color>
+    <color name="error">#D32F2F</color>
 
     <color name="exito">#2ECC71</color>
     <color name="on_exito">#FFFFFFFF</color>

@@ -1,8 +1,10 @@
 package com.example.carrishop;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.carrishop.datos.bd.BaseDeDatosApp;
@@ -24,6 +26,7 @@ public class ActividadOlvideContrasena extends AppCompatActivity {
         txtRepetirContrasena = findViewById(R.id.txtRepetirContrasena);
 
         findViewById(R.id.btnActualizarContrasena).setOnClickListener(v -> actualizar());
+        findViewById(R.id.btnVolverLogin).setOnClickListener(v -> volverAlInicio());
     }
 
     private void actualizar() {
@@ -65,5 +68,12 @@ public class ActividadOlvideContrasena extends AppCompatActivity {
 
     private String val(TextInputEditText t) {
         return t.getText() == null ? "" : t.getText().toString().trim();
+    }
+
+    private void volverAlInicio() {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
+        finish();
     }
 }
