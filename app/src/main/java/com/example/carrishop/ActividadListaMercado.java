@@ -132,6 +132,7 @@ public class ActividadListaMercado extends AppCompatActivity implements ListaMer
             Toast.makeText(this, R.string.lista_error_bd, Toast.LENGTH_SHORT).show();
             return;
         }
+        listaDao.insertarManual(nombre, superSeleccionado);
         txtProducto.setText("");
         cargarDatos();
     }
