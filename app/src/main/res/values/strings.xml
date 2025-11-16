@@ -16,6 +16,25 @@
     <string name="voz_lista_productos">Lista de Productos</string>
     <string name="voz_agregar_carrito">Agregar al carrito</string>
     <string name="accion_eliminar">Eliminar</string>
+    <string name="voz_ir_lista">Volver a la Lista</string>
+
+    <!-- Lista de mercado -->
+    <string name="lista_titulo">Lista de Mercado</string>
+    <string name="lista_hint_producto">Nombre del producto</string>
+    <string name="lista_btn_agregar">Agregar a la lista</string>
+    <string name="lista_btn_guardar">Guardar lista</string>
+    <string name="lista_btn_ir_voz">Ir a la sesión de voz</string>
+    <string name="lista_super_titulo">Selecciona un supermercado</string>
+    <string name="lista_detalle_pendiente">Producto pendiente sin precio</string>
+    <string name="lista_ya_agregado">Agregado</string>
+    <string name="lista_marcar">Marcar</string>
+    <string name="lista_eliminar">Eliminar de la lista</string>
+    <string name="lista_guardada">Lista guardada correctamente</string>
+    <string name="lista_error_super">Primero elige un supermercado</string>
+    <string name="lista_error_nombre">Escribe el nombre del producto</string>
+    <string name="lista_no_disponible">Este producto no se encuentra disponible en este supermercado</string>
+    <string name="lista_sin_items">Aún no agregas productos</string>
+    <string name="lista_error_bd">No pudimos abrir la lista. Intenta nuevamente.</string>
 
     <!-- Resumen de compra -->
     <string name="res_nombre_apellido">Nombre Apellido</string>

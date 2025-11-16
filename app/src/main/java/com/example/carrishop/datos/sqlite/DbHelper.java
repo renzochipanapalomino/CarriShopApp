@@ -1,8 +1,11 @@
 package com.example.carrishop.datos.sqlite;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteException;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -12,7 +15,9 @@ public class DbHelper extends SQLiteOpenHelper {
 
     // ¡Nombre distinto a Room para que no borre tus usuarios!
     public static final String DB_NAME = "catalogo.db";
-    public static final int DB_VERSION = 6; // subir versión para recrear si es necesario
+    public static final int DB_VERSION = 7; // subir versión para recrear si es necesario
+
+    private static final String TAG = "DbHelper";
 
     private final Context context;
 
@@ -25,6 +30,13 @@ public class DbHelper extends SQLiteOpenHelper {
     public void onConfigure(SQLiteDatabase db) {
         super.onConfigure(db);
         db.setForeignKeyConstraintsEnabled(true);
+        prepararListaMercado(db);
+    }
+
+    @Override
+    public void onOpen(SQLiteDatabase db) {
+        super.onOpen(db);
+        prepararListaMercado(db);
     }
 
     @Override
@@ -50,6 +62,8 @@ public class DbHelper extends SQLiteOpenHelper {
                 "FOREIGN KEY(supermercado_id) REFERENCES supermercados(id) ON DELETE CASCADE)");
         db.execSQL("CREATE INDEX IF NOT EXISTS idx_precio_prod_super ON precios(producto_id,supermercado_id)");
 
+        prepararListaMercado(db);
+
         ejecutarSeed(db, "sql/seed.sql");
     }
 
@@ -58,7 +72,57 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS precios");
         db.execSQL("DROP TABLE IF EXISTS productos");
         db.execSQL("DROP TABLE IF EXISTS supermercados");
+        db.execSQL("DROP TABLE IF EXISTS lista_mercado");
         onCreate(db);
+    }
+
+    private void prepararListaMercado(SQLiteDatabase db) {
+        try {
+            db.execSQL("CREATE TABLE IF NOT EXISTS lista_mercado (" +
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "nombre TEXT NOT NULL, " +
+                    "nombre_normalizado TEXT NOT NULL, " +
+                    "precio REAL DEFAULT 0, " +
+                    "cantidad INTEGER DEFAULT 0, " +
+                    "estado INTEGER DEFAULT 0, " +
+                    "agregado_por_voz INTEGER DEFAULT 0, " +
+                    "supermercado_id INTEGER DEFAULT -1" +
+                    ")");
+            db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS idx_lista_norm ON lista_mercado(nombre_normalizado, supermercado_id)");
+
+            asegurarColumna(db, "lista_mercado", "agregado_por_voz", "INTEGER DEFAULT 0");
+            asegurarColumna(db, "lista_mercado", "supermercado_id", "INTEGER DEFAULT -1");
+        } catch (SQLiteException e) {
+            Log.e(TAG, "No se pudo preparar la tabla lista_mercado", e);
+        }
+    }
+
+    private void asegurarColumna(SQLiteDatabase db, String tabla, String columna, String definicion) {
+        if (!tieneColumna(db, tabla, columna)) {
+            try {
+                db.execSQL("ALTER TABLE " + tabla + " ADD COLUMN " + columna + " " + definicion);
+            } catch (SQLiteException e) {
+                Log.e(TAG, "No se pudo agregar la columna " + columna + " en " + tabla, e);
+            }
+        }
+    }
+
+    private boolean tieneColumna(SQLiteDatabase db, String tabla, String columna) {
+        Cursor cursor = null;
+        try {
+            cursor = db.rawQuery("PRAGMA table_info(" + tabla + ")", null);
+            while (cursor.moveToNext()) {
+                String nombre = cursor.getString(1);
+                if (columna.equalsIgnoreCase(nombre)) {
+                    return true;
+                }
+            }
+        } catch (SQLiteException e) {
+            Log.e(TAG, "No se pudo consultar PRAGMA table_info para " + tabla, e);
+        } finally {
+            if (cursor != null) cursor.close();
+        }
+        return false;
     }
 
     private void ejecutarSeed(SQLiteDatabase db, String assetPath) {
