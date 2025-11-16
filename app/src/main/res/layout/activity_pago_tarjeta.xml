@@ -186,7 +186,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="@string/t_politica_seguridad"
-            android:textColor="#777777"
+            android:textColor="#494646"
             android:textSize="12sp"
             android:lineSpacingExtra="4dp" />
 
