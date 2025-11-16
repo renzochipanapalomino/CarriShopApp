@@ -3,8 +3,8 @@ package com.example.carrishop.datos.sqlite;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteException;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import java.io.BufferedReader;
@@ -31,12 +31,14 @@ public class DbHelper extends SQLiteOpenHelper {
         super.onConfigure(db);
         db.setForeignKeyConstraintsEnabled(true);
         prepararListaMercado(db);
+        verificarDatosIniciales(db);
     }
 
     @Override
     public void onOpen(SQLiteDatabase db) {
         super.onOpen(db);
         prepararListaMercado(db);
+        verificarDatosIniciales(db);
     }
 
     @Override
@@ -75,6 +77,7 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS idx_lista_norm ON lista_mercado(nombre_normalizado, supermercado_id)");
 
         ejecutarSeed(db, "sql/seed.sql");
+        verificarDatosIniciales(db);
     }
 
     @Override
@@ -153,6 +156,24 @@ public class DbHelper extends SQLiteOpenHelper {
             br.close();
         } catch (Exception ignore) {
             // si no existe el seed, continuar
+        }
+    }
+
+    private void verificarDatosIniciales(SQLiteDatabase db) {
+        Cursor cursor = null;
+        try {
+            cursor = db.rawQuery("SELECT COUNT(*) FROM productos", null);
+            if (cursor.moveToFirst()) {
+                long total = cursor.getLong(0);
+                if (total == 0) {
+                    ejecutarSeed(db, "sql/seed.sql");
+                }
+            }
+        } catch (SQLiteException e) {
+            Log.e(TAG, "No se pudo verificar datos iniciales", e);
+            ejecutarSeed(db, "sql/seed.sql");
+        } finally {
+            if (cursor != null) cursor.close();
         }
     }
 }

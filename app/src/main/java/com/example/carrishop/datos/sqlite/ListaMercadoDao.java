@@ -65,7 +65,7 @@ public class ListaMercadoDao {
         }
         try (SQLiteDatabase db = helper.getWritableDatabase()) {
             String normalizado = TextoUtils.normalizar(nombre);
-            long existenteId = buscarIdPorNombre(normalizado, superId);
+            long existenteId = buscarIdPorNombre(db, normalizado, superId);
 
             ContentValues cv = new ContentValues();
             cv.put("nombre", nombre.trim());
@@ -113,7 +113,7 @@ public class ListaMercadoDao {
     public long insertarDesdeVoz(String nombre, double precio, int cantidad, int superId) {
         try (SQLiteDatabase db = helper.getWritableDatabase()) {
             String normalizado = TextoUtils.normalizar(nombre);
-            long existenteId = buscarIdPorNombre(normalizado, superId);
+            long existenteId = buscarIdPorNombre(db, normalizado, superId);
 
             ContentValues cv = new ContentValues();
             cv.put("nombre", nombre);
@@ -153,8 +153,9 @@ public class ListaMercadoDao {
     /**
      * Busca el ID de un ítem por su nombre normalizado.
      */
-    private long buscarIdPorNombre(String nombreNormalizado, int superId) {
-        try (SQLiteDatabase db = helper.getReadableDatabase()) {
+    private long buscarIdPorNombre(SQLiteDatabase db, String nombreNormalizado, int superId) {
+        Cursor c = null;
+        try {
             String selection = "nombre_normalizado = ?";
             List<String> args = new ArrayList<>();
             args.add(nombreNormalizado);
@@ -164,15 +165,16 @@ public class ListaMercadoDao {
                 args.add(String.valueOf(superId));
             }
 
-            try (Cursor c = db.query("lista_mercado", new String[]{"id"}, selection, args.toArray(new String[0]), null, null, null)) {
-                if (c.moveToFirst()) {
-                    return c.getLong(0);
-                }
-                return -1;
+            c = db.query("lista_mercado", new String[]{"id"}, selection, args.toArray(new String[0]), null, null, null);
+            if (c.moveToFirst()) {
+                return c.getLong(0);
             }
+            return -1;
         } catch (SQLiteException e) {
             Log.e(TAG, "Error buscando por nombre", e);
             return -1;
+        } finally {
+            if (c != null) c.close();
         }
     }
 
