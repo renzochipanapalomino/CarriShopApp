@@ -92,7 +92,7 @@
             android:id="@+id/txtTituloRecompensa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Empieza tu viaje de recompensas 🥖"
+            android:text="Empieza tu viaje de recompensas"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -116,7 +116,7 @@
             style="@style/Widget.Carrishop.Cta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Canjear mis Estrellas ⭐"
+            android:text="Canjear mis Estrellas"
             android:layout_marginTop="10dp"/>
 
 

@@ -73,8 +73,8 @@
                 android:layout_marginBottom="8dp">
 
                 <View
-                    android:layout_width="114dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="96dp"
+                    android:layout_height="76dp"
                     android:layout_gravity="center"
                     android:background="@drawable/bg_nivel_activo" />
 
