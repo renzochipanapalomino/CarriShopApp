@@ -121,11 +121,11 @@
 
                     <!-- Botón secundario (blanco con borde celeste) -->
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnConfigurarPerfil"
+                        android:id="@+id/btnListaMercado"
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
                         android:layout_marginTop="10dp"
-                        android:text="Configurar Perfil"
+                        android:text="@string/lista_titulo"
                         android:textAllCaps="false"
                         android:textColor="@color/primario"
                         android:textSize="15sp"
