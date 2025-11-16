@@ -68,16 +68,6 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE INDEX IF NOT EXISTS idx_precio_prod_super ON precios(producto_id,supermercado_id)");
 
         prepararListaMercado(db);
-        db.execSQL("CREATE TABLE IF NOT EXISTS lista_mercado (" +
-                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "nombre TEXT NOT NULL, " +
-                "nombre_normalizado TEXT NOT NULL, " +
-                "precio REAL DEFAULT 0, " +
-                "cantidad INTEGER DEFAULT 0, " +
-                "estado INTEGER DEFAULT 0, " +
-                "agregado_por_voz INTEGER DEFAULT 0, " +
-                "supermercado_id INTEGER DEFAULT -1");
-        db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS idx_lista_norm ON lista_mercado(nombre_normalizado, supermercado_id)");
 
         ejecutarSeed(db, "sql/seed.sql");
         verificarDatosIniciales(db);
