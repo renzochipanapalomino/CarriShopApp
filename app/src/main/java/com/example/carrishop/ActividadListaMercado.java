@@ -127,6 +127,11 @@ public class ActividadListaMercado extends AppCompatActivity implements ListaMer
             Toast.makeText(this, R.string.lista_error_nombre, Toast.LENGTH_SHORT).show();
             return;
         }
+        long nuevoId = listaDao.insertarManual(nombre, superSeleccionado);
+        if (nuevoId == -1) {
+            Toast.makeText(this, R.string.lista_error_bd, Toast.LENGTH_SHORT).show();
+            return;
+        }
         listaDao.insertarManual(nombre, superSeleccionado);
         txtProducto.setText("");
         cargarDatos();
