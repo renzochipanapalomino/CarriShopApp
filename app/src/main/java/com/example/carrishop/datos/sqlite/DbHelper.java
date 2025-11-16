@@ -12,7 +12,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
     // ¡Nombre distinto a Room para que no borre tus usuarios!
     public static final String DB_NAME = "catalogo.db";
-    public static final int DB_VERSION = 6; // subir versión para recrear si es necesario
+    public static final int DB_VERSION = 7; // subir versión para recrear si es necesario
 
     private final Context context;
 
@@ -50,6 +50,18 @@ public class DbHelper extends SQLiteOpenHelper {
                 "FOREIGN KEY(supermercado_id) REFERENCES supermercados(id) ON DELETE CASCADE)");
         db.execSQL("CREATE INDEX IF NOT EXISTS idx_precio_prod_super ON precios(producto_id,supermercado_id)");
 
+        db.execSQL("CREATE TABLE IF NOT EXISTS lista_mercado (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "nombre TEXT NOT NULL, " +
+                "nombre_normalizado TEXT NOT NULL, " +
+                "precio REAL DEFAULT 0, " +
+                "cantidad INTEGER DEFAULT 0, " +
+                "estado INTEGER DEFAULT 0, " +
+                "agregado_por_voz INTEGER DEFAULT 0, " +
+                "supermercado_id INTEGER DEFAULT -1" +
+                ")");
+        db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS idx_lista_norm ON lista_mercado(nombre_normalizado, supermercado_id)");
+
         ejecutarSeed(db, "sql/seed.sql");
     }
 
@@ -58,6 +70,7 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS precios");
         db.execSQL("DROP TABLE IF EXISTS productos");
         db.execSQL("DROP TABLE IF EXISTS supermercados");
+        db.execSQL("DROP TABLE IF EXISTS lista_mercado");
         onCreate(db);
     }
 

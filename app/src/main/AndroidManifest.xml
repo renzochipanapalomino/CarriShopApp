@@ -59,6 +59,12 @@
             android:name=".ActividadEscanearVoz"
             android:exported="false" />
 
+        <!-- Lista de mercado -->
+        <activity
+            android:name=".ActividadListaMercado"
+            android:exported="false"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
         <!-- Resumen de compra -->
         <activity
             android:name=".ActividadResumenCompra"

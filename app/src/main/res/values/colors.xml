@@ -7,6 +7,7 @@
     <!-- acento secundario: turquesa -->
     <color name="secundario">#00BFA6</color>
     <color name="secundario_oscuro">#008E76</color>
+    <color name="boton_secundario">#E3F2FD</color>
 
     <!-- textos y superficies -->
     <color name="on_primario">#FFFFFFFF</color>
