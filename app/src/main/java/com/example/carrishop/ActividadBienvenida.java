@@ -117,12 +117,12 @@ public class ActividadBienvenida extends AppCompatActivity {
             startActivity(i);
         });
 
-        // 🔹 Botón "Configurar Perfil"
-        findViewById(R.id.btnConfigurarPerfil).setOnClickListener(v -> {
-            Intent i = new Intent(this, ActividadPerfil.class)
+        // 🔹 Botón "Lista de Mercado"
+        findViewById(R.id.btnListaMercado).setOnClickListener(v -> {
+            Intent i = new Intent(this, ActividadListaMercado.class)
                     .putExtra("nombre", nombre)
                     .putExtra("email", email);
-            perfilLauncher.launch(i);
+            startActivity(i);
         });
     }
 

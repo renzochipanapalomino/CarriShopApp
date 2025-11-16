@@ -3,7 +3,6 @@ package com.example.carrishop;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
@@ -20,18 +19,18 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.carrishop.adaptadores.ProductoCapturadoAdaptador;
+import com.example.carrishop.datos.modelos.ListaMercadoItem;
 import com.example.carrishop.datos.modelos.ProductoCapturado;
 import com.example.carrishop.datos.modelos.ProductoConPrecio;
 import com.example.carrishop.datos.sqlite.DbHelper;
+import com.example.carrishop.datos.sqlite.ListaMercadoDao;
 import com.example.carrishop.datos.sqlite.ProductoPrecioDao;
 import com.example.carrishop.dialogos.DialogoSeleccionProducto;
 import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
-import java.util.Set;
 
 public class ActividadEscanearVoz extends AppCompatActivity {
 
@@ -39,6 +38,7 @@ public class ActividadEscanearVoz extends AppCompatActivity {
     private ProductoCapturadoAdaptador adaptador;
     private DbHelper dbHelper;
     private ProductoPrecioDao precioDao;
+    private ListaMercadoDao listaDao;
 
     private int superId = -1;
     private String superNombre = "";
@@ -66,22 +66,23 @@ public class ActividadEscanearVoz extends AppCompatActivity {
         // --- BD local ---
         dbHelper = new DbHelper(this);
         precioDao = new ProductoPrecioDao(dbHelper);
+        listaDao = new ListaMercadoDao(dbHelper);
 
         // --- Recycler ---
         RecyclerView rv = findViewById(R.id.recyclerVoz);
         rv.setLayoutManager(new LinearLayoutManager(this));
         adaptador = new ProductoCapturadoAdaptador(capturados, position -> {
             if (position >= 0 && position < capturados.size()) {
-                capturados.remove(position);
+                ProductoCapturado eliminado = capturados.remove(position);
+                if (eliminado.listaId > 0) listaDao.eliminar(eliminado.listaId);
                 adaptador.notifyItemRemoved(position);
                 adaptador.notifyItemRangeChanged(position, capturados.size() - position);
-                guardarCarritoShared(); // actualizar persistencia
             }
         });
         rv.setAdapter(adaptador);
 
-        // --- Cargar carrito persistente (desde ofertas) ---
-        cargarCarritoGuardado();
+        // --- Cargar lista persistente ---
+        cargarDesdeListaMercado();
 
         // --- Lanzador de voz ---
         lanzadorVoz = registerForActivityResult(
@@ -114,6 +115,15 @@ public class ActividadEscanearVoz extends AppCompatActivity {
             } else {
                 pedirPermisoAudio.launch(Manifest.permission.RECORD_AUDIO);
             }
+        });
+
+        findViewById(R.id.btnIrListaMercado).setOnClickListener(v -> {
+            Intent intent = new Intent(this, ActividadListaMercado.class);
+            intent.putExtra("superId", superId);
+            intent.putExtra("superNombre", superNombre);
+            intent.putExtra("nombre", nombreUsuario);
+            intent.putExtra("email", emailUsuario);
+            startActivity(intent);
         });
 
         // --- Botón para ir al resumen ---
@@ -169,41 +179,23 @@ public class ActividadEscanearVoz extends AppCompatActivity {
 
     // ========== CARRITO ==========
     private void agregarALista(String nombre, double precioUnitario, int cantidad) {
-        ProductoCapturado nuevo = new ProductoCapturado(nombre, precioUnitario);
-        nuevo.cantidad = cantidad;
+        ProductoCapturado nuevo = new ProductoCapturado(nombre, precioUnitario, cantidad);
+        long id = listaDao.insertarDesdeVoz(nombre, precioUnitario, cantidad, superId);
+        nuevo.listaId = id;
         capturados.add(nuevo);
         adaptador.notifyItemInserted(capturados.size() - 1);
-        guardarCarritoShared();
     }
 
-    /** ✅ Cargar carrito guardado desde SharedPreferences */
-    private void cargarCarritoGuardado() {
-        SharedPreferences sp = getSharedPreferences("carrito", Context.MODE_PRIVATE);
-        Set<String> set = sp.getStringSet("items", new HashSet<>());
-        if (set == null || set.isEmpty()) return;
-
+    private void cargarDesdeListaMercado() {
         capturados.clear();
-        for (String s : set) {
-            try {
-                String[] partes = s.split("\\|");
-                String nombre = partes[0];
-                double precio = Double.parseDouble(partes[1]);
-                ProductoCapturado p = new ProductoCapturado(nombre, precio);
-                p.cantidad = 1;
+        List<ListaMercadoItem> data = listaDao.obtenerConPrecio(superId);
+        if (data != null) {
+            for (ListaMercadoItem item : data) {
+                ProductoCapturado p = new ProductoCapturado(item.nombre, item.precio, item.cantidad, item.id);
                 capturados.add(p);
-            } catch (Exception ignored) {}
+            }
         }
         adaptador.notifyDataSetChanged();
-    }
-
-    /** ✅ Guardar carrito persistente */
-    private void guardarCarritoShared() {
-        SharedPreferences sp = getSharedPreferences("carrito", Context.MODE_PRIVATE);
-        Set<String> set = new HashSet<>();
-        for (ProductoCapturado p : capturados) {
-            set.add(p.nombre + "|" + p.precio + "|0");
-        }
-        sp.edit().putStringSet("items", set).apply();
     }
 
     private String safeStr(String s) {
@@ -212,7 +204,13 @@ public class ActividadEscanearVoz extends AppCompatActivity {
 
     /** 🧹 Eliminar carrito guardado al finalizar compra */
     public static void limpiarCarrito(Context ctx) {
-        SharedPreferences sp = ctx.getSharedPreferences("carrito", Context.MODE_PRIVATE);
-        sp.edit().clear().apply();
+        DbHelper helper = new DbHelper(ctx);
+        new ListaMercadoDao(helper).limpiarSincronizados();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        cargarDesdeListaMercado();
     }
 }
