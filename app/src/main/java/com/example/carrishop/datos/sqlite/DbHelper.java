@@ -1,15 +1,18 @@
 package com.example.carrishop.datos.sqlite;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteException;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+
+import com.example.carrishop.datos.util.TextoUtils;
 
 public class DbHelper extends SQLiteOpenHelper {
 
@@ -31,12 +34,14 @@ public class DbHelper extends SQLiteOpenHelper {
         super.onConfigure(db);
         db.setForeignKeyConstraintsEnabled(true);
         prepararListaMercado(db);
+        verificarDatosIniciales(db);
     }
 
     @Override
     public void onOpen(SQLiteDatabase db) {
         super.onOpen(db);
         prepararListaMercado(db);
+        verificarDatosIniciales(db);
     }
 
     @Override
@@ -75,6 +80,7 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS idx_lista_norm ON lista_mercado(nombre_normalizado, supermercado_id)");
 
         ejecutarSeed(db, "sql/seed.sql");
+        verificarDatosIniciales(db);
     }
 
     @Override
@@ -153,6 +159,70 @@ public class DbHelper extends SQLiteOpenHelper {
             br.close();
         } catch (Exception ignore) {
             // si no existe el seed, continuar
+        }
+    }
+
+    private void verificarDatosIniciales(SQLiteDatabase db) {
+        Cursor cursor = null;
+        boolean necesitaSeed = false;
+        try {
+            cursor = db.rawQuery("SELECT COUNT(*) FROM productos", null);
+            if (!cursor.moveToFirst() || cursor.getLong(0) == 0) {
+                necesitaSeed = true;
+            }
+        } catch (SQLiteException e) {
+            Log.e(TAG, "No se pudo contar productos", e);
+            necesitaSeed = true;
+        } finally {
+            if (cursor != null) cursor.close();
+        }
+
+        if (!necesitaSeed) {
+            try {
+                cursor = db.rawQuery("SELECT COUNT(*) FROM precios", null);
+                if (!cursor.moveToFirst() || cursor.getLong(0) == 0) {
+                    necesitaSeed = true;
+                }
+            } catch (SQLiteException e) {
+                Log.e(TAG, "No se pudo contar precios", e);
+                necesitaSeed = true;
+            } finally {
+                if (cursor != null) cursor.close();
+            }
+        }
+
+        if (necesitaSeed) {
+            ejecutarSeed(db, "sql/seed.sql");
+        }
+
+        normalizarCatalogo(db);
+    }
+
+    private void normalizarCatalogo(SQLiteDatabase db) {
+        Cursor cursor = null;
+        try {
+            db.beginTransaction();
+            cursor = db.query("productos", new String[]{"id", "nombre", "nombre_normalizado"},
+                    null, null, null, null, null);
+            while (cursor != null && cursor.moveToNext()) {
+                long id = cursor.getLong(0);
+                String nombre = cursor.getString(1);
+                String guardado = cursor.getString(2);
+                String recalculado = TextoUtils.normalizar(nombre);
+                if (!recalculado.equals(guardado)) {
+                    ContentValues cv = new ContentValues();
+                    cv.put("nombre_normalizado", recalculado);
+                    db.update("productos", cv, "id=?", new String[]{String.valueOf(id)});
+                }
+            }
+            db.setTransactionSuccessful();
+        } catch (SQLiteException e) {
+            Log.e(TAG, "No se pudo normalizar el catálogo", e);
+        } finally {
+            if (cursor != null) cursor.close();
+            if (db.inTransaction()) {
+                db.endTransaction();
+            }
         }
     }
 }
