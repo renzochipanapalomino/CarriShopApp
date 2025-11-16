@@ -40,7 +40,7 @@ INSERT OR IGNORE INTO productos (id,nombre,nombre_normalizado,marca,categoria) V
   (6,'Fideos tornillo 500 g','fideos tornillo','Don Vittorio','Pastas'),
   (7,'Arroz extra 5 kg','arroz extra 5kg','Costeño','Granos'),
   (8,'Lentejas 1 kg','lentejas','Costeño','Granos'),
-  (9,'Aceite vegetal 1L','aceite vegetal','Primor',hat'Aceites'),
+  (9,'Aceite vegetal 1L','aceite vegetal','Primor','Aceites'),
   (10,'Aceite de oliva 500 ml','aceite de oliva','Carbonell','Aceites'),
   (11,'Azúcar blanca 1 kg','azucar blanca','Cartavio','Endulzantes'),
   (12,'Azúcar rubia 1 kg','azucar rubia','Cartavio','Endulzantes'),
