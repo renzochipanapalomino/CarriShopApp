@@ -164,65 +164,19 @@ public class DbHelper extends SQLiteOpenHelper {
 
     private void verificarDatosIniciales(SQLiteDatabase db) {
         Cursor cursor = null;
-        boolean necesitaSeed = false;
         try {
             cursor = db.rawQuery("SELECT COUNT(*) FROM productos", null);
-            if (!cursor.moveToFirst() || cursor.getLong(0) == 0) {
-                necesitaSeed = true;
+            if (cursor.moveToFirst()) {
+                long total = cursor.getLong(0);
+                if (total == 0) {
+                    ejecutarSeed(db, "sql/seed.sql");
+                }
             }
         } catch (SQLiteException e) {
-            Log.e(TAG, "No se pudo contar productos", e);
-            necesitaSeed = true;
-        } finally {
-            if (cursor != null) cursor.close();
-        }
-
-        if (!necesitaSeed) {
-            try {
-                cursor = db.rawQuery("SELECT COUNT(*) FROM precios", null);
-                if (!cursor.moveToFirst() || cursor.getLong(0) == 0) {
-                    necesitaSeed = true;
-                }
-            } catch (SQLiteException e) {
-                Log.e(TAG, "No se pudo contar precios", e);
-                necesitaSeed = true;
-            } finally {
-                if (cursor != null) cursor.close();
-            }
-        }
-
-        if (necesitaSeed) {
+            Log.e(TAG, "No se pudo verificar datos iniciales", e);
             ejecutarSeed(db, "sql/seed.sql");
-        }
-
-        normalizarCatalogo(db);
-    }
-
-    private void normalizarCatalogo(SQLiteDatabase db) {
-        Cursor cursor = null;
-        try {
-            db.beginTransaction();
-            cursor = db.query("productos", new String[]{"id", "nombre", "nombre_normalizado"},
-                    null, null, null, null, null);
-            while (cursor != null && cursor.moveToNext()) {
-                long id = cursor.getLong(0);
-                String nombre = cursor.getString(1);
-                String guardado = cursor.getString(2);
-                String recalculado = TextoUtils.normalizar(nombre);
-                if (!recalculado.equals(guardado)) {
-                    ContentValues cv = new ContentValues();
-                    cv.put("nombre_normalizado", recalculado);
-                    db.update("productos", cv, "id=?", new String[]{String.valueOf(id)});
-                }
-            }
-            db.setTransactionSuccessful();
-        } catch (SQLiteException e) {
-            Log.e(TAG, "No se pudo normalizar el catálogo", e);
         } finally {
             if (cursor != null) cursor.close();
-            if (db.inTransaction()) {
-                db.endTransaction();
-            }
         }
     }
 }
