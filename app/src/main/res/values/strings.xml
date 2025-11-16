@@ -34,7 +34,6 @@
     <string name="lista_error_nombre">Escribe el nombre del producto</string>
     <string name="lista_no_disponible">Este producto no se encuentra disponible en este supermercado</string>
     <string name="lista_sin_items">Aún no agregas productos</string>
-    <string name="lista_error_bd">No pudimos abrir la lista. Intenta nuevamente.</string>
 
     <!-- Resumen de compra -->
     <string name="res_nombre_apellido">Nombre Apellido</string>

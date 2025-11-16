@@ -58,8 +58,7 @@ public class DbHelper extends SQLiteOpenHelper {
                 "cantidad INTEGER DEFAULT 0, " +
                 "estado INTEGER DEFAULT 0, " +
                 "agregado_por_voz INTEGER DEFAULT 0, " +
-                "supermercado_id INTEGER DEFAULT -1" +
-                ")");
+                "supermercado_id INTEGER DEFAULT -1");
         db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS idx_lista_norm ON lista_mercado(nombre_normalizado, supermercado_id)");
 
         ejecutarSeed(db, "sql/seed.sql");

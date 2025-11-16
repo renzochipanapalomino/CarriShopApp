@@ -181,10 +181,6 @@ public class ActividadEscanearVoz extends AppCompatActivity {
     private void agregarALista(String nombre, double precioUnitario, int cantidad) {
         ProductoCapturado nuevo = new ProductoCapturado(nombre, precioUnitario, cantidad);
         long id = listaDao.insertarDesdeVoz(nombre, precioUnitario, cantidad, superId);
-        if (id == -1) {
-            Toast.makeText(this, R.string.lista_error_bd, Toast.LENGTH_SHORT).show();
-            return;
-        }
         nuevo.listaId = id;
         capturados.add(nuevo);
         adaptador.notifyItemInserted(capturados.size() - 1);
