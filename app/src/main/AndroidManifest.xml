@@ -168,15 +168,16 @@
         <activity
             android:name=".ActividadModoNinos"
             android:exported="false"
-            android:theme="@style/Theme.Material3.DayNight.NoActionBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+        <!-- Se eliminó la línea android:theme -->
 
         <activity
             android:name=".ActividadModoNinosCategoria"
             android:exported="false"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="landscape"
-            android:theme="@style/Theme.Material3.DayNight.NoActionBar" />
+            android:screenOrientation="landscape" />
+        <!-- Se eliminó la línea android:theme -->
+
 
     </application>
 </manifest>
