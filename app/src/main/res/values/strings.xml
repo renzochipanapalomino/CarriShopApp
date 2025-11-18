@@ -12,17 +12,56 @@
     <string name="modo_kids_titulo">Modo niños activado</string>
     <string name="modo_kids_desc">Explora estas categorías divertidas mientras compras en familia.</string>
     <string name="modo_kids_hint">Las casillas flotan suavemente, toca una para comenzar a jugar.</string>
-    <string name="modo_kids_card_message">Pronto activaremos actividades para %1$s.</string>
     <string name="modo_kids_category_animals">Animales</string>
-    <string name="modo_kids_category_animals_desc">Aprende sonidos y descubre hábitats.</string>
+    <string name="modo_kids_category_animals_desc">Toca 5 animales diferentes y escucha cada sonido.</string>
+    <string name="modo_kids_category_colors">Colores</string>
+    <string name="modo_kids_category_colors_desc">Identifica 9 colores básicos con una sola guía sonora.</string>
     <string name="modo_kids_category_numbers">Números</string>
-    <string name="modo_kids_category_numbers_desc">Cuenta, suma y juega con cantidades.</string>
-    <string name="modo_kids_category_letters">Letras y alfabeto</string>
-    <string name="modo_kids_category_letters_desc">Repasa las vocales y nuevas palabras.</string>
-    <string name="modo_kids_category_vehicles">Vehículos</string>
-    <string name="modo_kids_category_vehicles_desc">Identifica autos, buses y aviones.</string>
-    <string name="modo_kids_category_toys">Juguetes</string>
-    <string name="modo_kids_category_toys_desc">Colores y formas con sus juguetes favoritos.</string>
+    <string name="modo_kids_category_numbers_desc">Repasa del 1 al 10 con una pista general.</string>
+    <string name="modo_kids_category_fruits">Frutas</string>
+    <string name="modo_kids_category_fruits_desc">Observa frutas populares y escucha una historia.</string>
+    <string name="modo_kids_category_vowels">Vocales</string>
+    <string name="modo_kids_category_vowels_desc">Aprende A, E, I, O, U con un audio guía.</string>
+
+    <string name="kids_desc_animals">Presiona cada animal para escuchar su sonido.</string>
+    <string name="kids_desc_colors">Toca un color para escuchar su nombre.</string>
+    <string name="kids_desc_numbers">Explora los números del 1 al 10. Todos usan el mismo audio guía.</string>
+    <string name="kids_desc_fruits">Observa las frutas favoritas y escucha una sola narración.</string>
+    <string name="kids_desc_vowels">Revisa las vocales. Cada botón reproduce el mismo audio.</string>
+
+    <string name="kids_animal_lion">León</string>
+    <string name="kids_animal_elephant">Elefante</string>
+    <string name="kids_animal_monkey">Mono</string>
+    <string name="kids_animal_frog">Rana</string>
+    <string name="kids_animal_bird">Pájaro</string>
+
+    <string name="kids_color_red">Rojo</string>
+    <string name="kids_color_blue">Azul</string>
+    <string name="kids_color_yellow">Amarillo</string>
+    <string name="kids_color_green">Verde</string>
+    <string name="kids_color_orange">Naranja</string>
+    <string name="kids_color_purple">Morado</string>
+    <string name="kids_color_pink">Rosa</string>
+    <string name="kids_color_white">Blanco</string>
+    <string name="kids_color_black">Negro</string>
+
+    <string name="kids_number_label">Número %1$d</string>
+
+    <string name="kids_fruit_apple">Manzana</string>
+    <string name="kids_fruit_banana">Plátano</string>
+    <string name="kids_fruit_orange">Naranja</string>
+    <string name="kids_fruit_grape">Uvas</string>
+    <string name="kids_fruit_watermelon">Sandía</string>
+
+    <string name="kids_vowel_a">Vocal A</string>
+    <string name="kids_vowel_e">Vocal E</string>
+    <string name="kids_vowel_i">Vocal I</string>
+    <string name="kids_vowel_o">Vocal O</string>
+    <string name="kids_vowel_u">Vocal U</string>
+
+    <string name="kids_missing_audio_generic">Agrega tus audios en res/raw para activar esta categoría.</string>
+    <string name="kids_missing_audio_specific">Agrega el archivo %1$s en res/raw.</string>
+    <string name="kids_close">Cerrar categoría</string>
     <string name="desc_avatar">Avatar del usuario</string>
     <string name="voz_presionar">PRESIONAR</string>
     <string name="voz_menciona">Menciona el nombre del producto</string>

@@ -1,11 +1,11 @@
 package com.example.carrishop;
 
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -34,18 +34,26 @@ public class ActividadModoNinos extends AppCompatActivity {
 
         int[] cardIds = new int[]{
                 R.id.cardAnimales,
+                R.id.cardColores,
                 R.id.cardNumeros,
-                R.id.cardLetras,
-                R.id.cardVehiculos,
-                R.id.cardJuguetes
+                R.id.cardFrutas,
+                R.id.cardVocales
         };
 
         String[] categoryNames = new String[]{
                 getString(R.string.modo_kids_category_animals),
+                getString(R.string.modo_kids_category_colors),
                 getString(R.string.modo_kids_category_numbers),
-                getString(R.string.modo_kids_category_letters),
-                getString(R.string.modo_kids_category_vehicles),
-                getString(R.string.modo_kids_category_toys)
+                getString(R.string.modo_kids_category_fruits),
+                getString(R.string.modo_kids_category_vowels)
+        };
+
+        String[] categoryKeys = new String[]{
+                "ANIMALS",
+                "COLORS",
+                "NUMBERS",
+                "FRUITS",
+                "VOWELS"
         };
 
         for (int i = 0; i < cardIds.length; i++) {
@@ -54,13 +62,14 @@ public class ActividadModoNinos extends AppCompatActivity {
                 continue;
             }
             startFloatingAnimation(card, i * 120L);
-
+            final String categoryKey = categoryKeys[i];
             final String categoryLabel = categoryNames[i];
-            card.setOnClickListener(v -> Toast.makeText(
-                    ActividadModoNinos.this,
-                    getString(R.string.modo_kids_card_message, categoryLabel),
-                    Toast.LENGTH_SHORT
-            ).show());
+            card.setContentDescription(categoryLabel);
+            card.setOnClickListener(v -> {
+                Intent intent = new Intent(ActividadModoNinos.this, ActividadModoNinosCategoria.class);
+                intent.putExtra(ActividadModoNinosCategoria.EXTRA_CATEGORY, categoryKey);
+                startActivity(intent);
+            });
         }
     }
 
