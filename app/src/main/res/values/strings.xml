@@ -19,14 +19,14 @@
     <string name="modo_kids_category_numbers">Números</string>
     <string name="modo_kids_category_numbers_desc">Repasa del 1 al 10 con un mismo audio guía.</string>
     <string name="modo_kids_category_fruits">Frutas</string>
-    <string name="modo_kids_category_fruits_desc">Observa 5 frutas y escucha un solo audio narrativo.</string>
+    <string name="modo_kids_category_fruits_desc">Explora 8 frutas y escucha un solo audio narrativo.</string>
     <string name="modo_kids_category_vowels">Vocales</string>
     <string name="modo_kids_category_vowels_desc">Aprende A, E, I, O, U con un audio guía.</string>
 
     <string name="kids_desc_animals">Toca el ave, chivo, gallo, gato o perro y descubre su sonido.</string>
     <string name="kids_desc_colors">Selecciona uno de los 9 colores para escuchar su nombre.</string>
     <string name="kids_desc_numbers">Explora los números del 1 al 10. Todos usan el mismo audio guía.</string>
-    <string name="kids_desc_fruits">Observa las frutas favoritas y escucha una sola narración.</string>
+    <string name="kids_desc_fruits">Observa las 8 frutas favoritas y escucha una sola narración.</string>
     <string name="kids_desc_vowels">Revisa las vocales. Cada botón reproduce el mismo audio.</string>
 
     <string name="kids_animal_bird">Ave</string>
@@ -50,8 +50,11 @@
     <string name="kids_fruit_apple">Manzana</string>
     <string name="kids_fruit_banana">Plátano</string>
     <string name="kids_fruit_orange">Naranja</string>
-    <string name="kids_fruit_grape">Uvas</string>
+    <string name="kids_fruit_grape">Uva</string>
+    <string name="kids_fruit_pear">Pera</string>
     <string name="kids_fruit_watermelon">Sandía</string>
+    <string name="kids_fruit_strawberry">Fresa</string>
+    <string name="kids_fruit_kiwi">Kiwi</string>
 
     <string name="kids_vowel_a">Vocal A</string>
     <string name="kids_vowel_e">Vocal E</string>
