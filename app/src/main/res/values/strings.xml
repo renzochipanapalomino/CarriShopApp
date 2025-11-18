@@ -13,36 +13,36 @@
     <string name="modo_kids_desc">Explora estas categorías divertidas mientras compras en familia.</string>
     <string name="modo_kids_hint">Las casillas flotan suavemente, toca una para comenzar a jugar.</string>
     <string name="modo_kids_category_animals">Animales</string>
-    <string name="modo_kids_category_animals_desc">Toca 5 animales diferentes y escucha cada sonido.</string>
+    <string name="modo_kids_category_animals_desc">Escucha los sonidos de ave, chivo, gallo, gato y perro.</string>
     <string name="modo_kids_category_colors">Colores</string>
-    <string name="modo_kids_category_colors_desc">Identifica 9 colores básicos con una sola guía sonora.</string>
+    <string name="modo_kids_category_colors_desc">Identifica los 9 colores básicos con sus audios.</string>
     <string name="modo_kids_category_numbers">Números</string>
-    <string name="modo_kids_category_numbers_desc">Repasa del 1 al 10 con una pista general.</string>
+    <string name="modo_kids_category_numbers_desc">Repasa del 1 al 10 con un mismo audio guía.</string>
     <string name="modo_kids_category_fruits">Frutas</string>
-    <string name="modo_kids_category_fruits_desc">Observa frutas populares y escucha una historia.</string>
+    <string name="modo_kids_category_fruits_desc">Observa 5 frutas y escucha un solo audio narrativo.</string>
     <string name="modo_kids_category_vowels">Vocales</string>
     <string name="modo_kids_category_vowels_desc">Aprende A, E, I, O, U con un audio guía.</string>
 
-    <string name="kids_desc_animals">Presiona cada animal para escuchar su sonido.</string>
-    <string name="kids_desc_colors">Toca un color para escuchar su nombre.</string>
+    <string name="kids_desc_animals">Toca el ave, chivo, gallo, gato o perro y descubre su sonido.</string>
+    <string name="kids_desc_colors">Selecciona uno de los 9 colores para escuchar su nombre.</string>
     <string name="kids_desc_numbers">Explora los números del 1 al 10. Todos usan el mismo audio guía.</string>
     <string name="kids_desc_fruits">Observa las frutas favoritas y escucha una sola narración.</string>
     <string name="kids_desc_vowels">Revisa las vocales. Cada botón reproduce el mismo audio.</string>
 
-    <string name="kids_animal_lion">León</string>
-    <string name="kids_animal_elephant">Elefante</string>
-    <string name="kids_animal_monkey">Mono</string>
-    <string name="kids_animal_frog">Rana</string>
-    <string name="kids_animal_bird">Pájaro</string>
+    <string name="kids_animal_bird">Ave</string>
+    <string name="kids_animal_goat">Chivo</string>
+    <string name="kids_animal_rooster">Gallo</string>
+    <string name="kids_animal_cat">Gato</string>
+    <string name="kids_animal_dog">Perro</string>
 
     <string name="kids_color_red">Rojo</string>
     <string name="kids_color_blue">Azul</string>
-    <string name="kids_color_yellow">Amarillo</string>
+    <string name="kids_color_yellow">Yellow (Amarillo)</string>
     <string name="kids_color_green">Verde</string>
     <string name="kids_color_orange">Naranja</string>
-    <string name="kids_color_purple">Morado</string>
-    <string name="kids_color_pink">Rosa</string>
-    <string name="kids_color_white">Blanco</string>
+    <string name="kids_color_purple">Púrpura</string>
+    <string name="kids_color_pink">Rosado</string>
+    <string name="kids_color_brown">Marrón</string>
     <string name="kids_color_black">Negro</string>
 
     <string name="kids_number_label">Número %1$d</string>
