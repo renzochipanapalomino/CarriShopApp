@@ -8,6 +8,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -34,6 +35,12 @@ public class KidsAudioButtonAdapter extends RecyclerView.Adapter<KidsAudioButton
         items.clear();
         items.addAll(newItems);
         notifyDataSetChanged();
+    }
+
+    @VisibleForTesting
+    @NonNull
+    List<KidsCategoryItem> getItemsSnapshot() {
+        return new ArrayList<>(items);
     }
 
     @NonNull
