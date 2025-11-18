@@ -166,10 +166,13 @@ public class ActividadModoNinosCategoria extends AppCompatActivity implements Ki
             case FRUITS:
                 String fruitAudio = "frutas"; // Un solo audio guía para todas las frutas.
                 items.add(new KidsCategoryItem("fruta_manzana", getString(R.string.kids_fruit_apple), "🍎", red, fruitAudio));
-                items.add(new KidsCategoryItem("fruta_platano", getString(R.string.kids_fruit_banana), "🍌", yellow, fruitAudio));
                 items.add(new KidsCategoryItem("fruta_naranja", getString(R.string.kids_fruit_orange), "🍊", orange, fruitAudio));
-                items.add(new KidsCategoryItem("fruta_uvas", getString(R.string.kids_fruit_grape), "🍇", purple, fruitAudio));
-                items.add(new KidsCategoryItem("fruta_sandia", getString(R.string.kids_fruit_watermelon), "🍉", green, fruitAudio));
+                items.add(new KidsCategoryItem("fruta_uva", getString(R.string.kids_fruit_grape), "🍇", purple, fruitAudio));
+                items.add(new KidsCategoryItem("fruta_pera", getString(R.string.kids_fruit_pear), "🍐", green, fruitAudio));
+                items.add(new KidsCategoryItem("fruta_platano", getString(R.string.kids_fruit_banana), "🍌", yellow, fruitAudio));
+                items.add(new KidsCategoryItem("fruta_fresa", getString(R.string.kids_fruit_strawberry), "🍓", pink, fruitAudio));
+                items.add(new KidsCategoryItem("fruta_sandia", getString(R.string.kids_fruit_watermelon), "🍉", teal, fruitAudio));
+                items.add(new KidsCategoryItem("fruta_kiwi", getString(R.string.kids_fruit_kiwi), "🥝", brown, fruitAudio));
                 break;
             case VOWELS:
                 items.add(new KidsCategoryItem("vocal_a", getString(R.string.kids_vowel_a), "A", pink, "vocales"));
