@@ -175,7 +175,7 @@
             </LinearLayout>
 
 
-            <!-- Bloque Letras & Vehículos -->
+            <!-- Bloque Colores & Frutas -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="191dp"
@@ -183,7 +183,7 @@
                 android:orientation="horizontal">
 
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cardLetras"
+                    android:id="@+id/cardColores"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="12dp"
@@ -206,14 +206,14 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="🔤"
+                            android:text="🎨"
                             android:textSize="20sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="@string/modo_kids_category_letters"
+                            android:text="@string/modo_kids_category_colors"
                             android:textColor="@color/texto"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -222,14 +222,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:text="@string/modo_kids_category_letters_desc"
+                            android:text="@string/modo_kids_category_colors_desc"
                             android:textColor="@color/texto_secundario"
                             android:textSize="14sp" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cardVehiculos"
+                    android:id="@+id/cardFrutas"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
@@ -252,14 +252,14 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="🚗"
+                            android:text="🍓"
                             android:textSize="20sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="@string/modo_kids_category_vehicles"
+                            android:text="@string/modo_kids_category_fruits"
                             android:textColor="@color/texto"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -268,14 +268,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:text="@string/modo_kids_category_vehicles_desc"
+                            android:text="@string/modo_kids_category_fruits_desc"
                             android:textColor="@color/texto_secundario"
                             android:textSize="14sp" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
 
-            <!-- Bloque Juguetes -->
+            <!-- Bloque Vocales -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="191dp"
@@ -283,7 +283,7 @@
                 android:orientation="horizontal">
 
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cardJuguetes"
+                    android:id="@+id/cardVocales"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -305,14 +305,14 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="🧸"
+                            android:text="🅰️"
                             android:textSize="20sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="@string/modo_kids_category_toys"
+                            android:text="@string/modo_kids_category_vowels"
                             android:textColor="@color/texto"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -321,7 +321,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:text="@string/modo_kids_category_toys_desc"
+                            android:text="@string/modo_kids_category_vowels_desc"
                             android:textColor="@color/texto_secundario"
                             android:textSize="14sp" />
                     </LinearLayout>
